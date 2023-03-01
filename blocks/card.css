@@ -15,14 +15,31 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-.card__list {}
+.card__list {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 282px);
+    gap: 20px 17px;
+    padding: 0;
+    margin: 0;
+}
+
 .card__image {
   width: 282px;
   height: 282px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-.card__description {}
+.card__description {
+    display: flex;
+    background-color: white;
+    color: black;
+    padding-bottom: 25px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 10px 10px;
+}
 .card__like-button {
   background: transparent url(../images/like-inactive.svg);
   background-position: center;
