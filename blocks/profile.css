@@ -42,23 +42,6 @@
   opacity: 0.6;
 }
 
-/* @media screen and (max-width: 768px) {
-  .profile__author,
-  .profile__subtitle {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-  }
-} */
-
-/* @media screen and (max-width: 425px) {
-  .profile {
-    flex-direction: column;
-    justify-content: center;
-    margin: 42px auto 0;
-  }
-} */
-
 .profile__edit-button:hover {
   opacity: 0.6;
 }
