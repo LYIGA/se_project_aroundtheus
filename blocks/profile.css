@@ -10,7 +10,7 @@
   grid-template-areas:
     "title button"
     "description description";
-  grid-template-columns: minmax(auto 373) auto;
+  grid-template-columns: minmax(auto, 373px) auto;
   align-items: center;
 }
 
@@ -30,8 +30,7 @@
   background-position: center;
   background-repeat: no-repeat;
   margin-left: auto;
-  grid-area: button;
-  height: 50px;
+   height: 50px;
   width: 150px;
   border: 2px solid white;
   border-radius: 2px;
@@ -81,6 +80,8 @@
 
 @media screen and (min-width: 320px) and (max-width: 900px) {
   .profile {
+    margin-top: 38px;
+    margin-bottom: 36px;
     flex-direction: column;
   }
   .profile__title {
@@ -90,9 +91,6 @@
     text-align: center;
   }
   .profile__image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 0;
   }
   .profile__info {
