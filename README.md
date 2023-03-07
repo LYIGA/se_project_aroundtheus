@@ -1,6 +1,6 @@
 # Project 3: Around The U.S.
 
-### Description 
+### Description
 
 * Intro  
 * Figma  

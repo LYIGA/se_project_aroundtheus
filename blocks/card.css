@@ -15,7 +15,7 @@
   margin-top: 0;
   margin-bottom: 0;
 }
-.card__list {
+.cards__list {
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 282px);
