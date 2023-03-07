@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   margin-top: 40px;
-  margin-bottom: 47px;
+  margin-bottom: 51px;
 }
 
 .profile__info {
@@ -22,7 +22,7 @@
   width: 24px;
   grid-area: button;
   margin-left: 18px;
-  outline: 1px solid white;
+  border: 1px solid white;
 }
 
 .profile__add-button {
@@ -33,7 +33,7 @@
   grid-area: button;
   height: 50px;
   width: 150px;
-  outline: 2px solid white;
+  border: 2px solid white;
   border-radius: 2px;
   transition: background-color 0.2s ease-in-out;
 }
@@ -76,7 +76,7 @@
   width: 120px;
   object-fit: cover;
   background-position: center;
-  margin-right: 24px;
+  margin-right: 30px;
 }
 
 @media screen and (min-width: 320px) and (max-width: 900px) {
