@@ -39,10 +39,12 @@
 
 .profile__add-button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
   opacity: 0.6;
+  cursor: pointer;
 }
 
 .profile__title {
@@ -109,9 +111,11 @@
   .profile__add-button {
     margin: 0;
     width: 282px;
+    background-size: 8px 8px;
   }
   .profile__edit-button {
     width: 18px;
     height: 18px;
+    background-size: 8px 8px;
   }
 }
