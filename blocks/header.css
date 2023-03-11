@@ -6,6 +6,7 @@
   padding: 45px 0 41px;
   display: flex;
   align-items: center;
+  max-width: 880px;
 }
 
 .header__logo {
