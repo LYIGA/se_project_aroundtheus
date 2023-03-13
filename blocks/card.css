@@ -11,7 +11,7 @@
   overflow: hidden;
   font-weight: 900;
   font-size: 24px;
-  line-height: 30px;
+  line-height: 29px;
   margin-top: 0;
   margin-bottom: 0;
 }
@@ -51,6 +51,7 @@
   width: 21px;
   height: 18px;
   border: none;
+  flex-shrink: 0;
   cursor:pointer;
   
 }
