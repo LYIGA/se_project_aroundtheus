@@ -8,7 +8,7 @@
     z-index: 999;
     /* display: flex;
     justify-content: center;  */
-    padding: 0 19px;
+    padding: 36px;
     display: none;
 }
 
@@ -96,5 +96,4 @@
     height: 50px;
     background-color: black;
     border-radius: 2px;
-} */
-
+}
