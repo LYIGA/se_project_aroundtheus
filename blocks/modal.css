@@ -30,7 +30,7 @@
     margin: 0 0 30px;
 }
 
-.modal__opened {
+.modal_opened {
     display: flex;
 }
 
