@@ -6,9 +6,9 @@
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 999;
-    /* display: flex;
-    justify-content: center;  */
-    padding: 0 19px;
+    align-items: center;
+    justify-content: center;  
+
     display: none;
     align-items: center;
 }
@@ -47,14 +47,16 @@
     align-items: center;
 }
 
-.modal__countainer {
+.modal__container {
     position: relative;
     background-color: #fff;
     color: black;
-    margin: auto;
-    padding: 36px;
+    padding: 34px 36px;
     border-radius: 10px;
-    width: 430px;
+    width: 100%;
+    max-width: 430px;
+    min-height: 323px;
+    box-sizing: border-box;
 }
 
 .modal__close {
@@ -76,7 +78,7 @@
     flex-direction: column;
     margin-top: 54px;
     width: 430px;
-    height: 330px;
+    /* height: 330px; */
 }
 @media screen and(min-width: 320px) and(max-width: 550px) {
     .modal__form {
