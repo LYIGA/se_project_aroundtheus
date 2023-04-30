@@ -32,17 +32,17 @@
   border-top-right-radius: 10px;
 }
 .card__description {
-    display: flex;
-    background-color: white;
-    color: black;
-    padding-bottom: 25px;
-    padding-left: 20px;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 0 0 10px 10px;
-    padding-right: 20px;
-    padding-top: 25px;
-    box-sizing: border-box;
+  display: flex;
+  background-color: white;
+  color: black;
+  padding-bottom: 25px;
+  padding-left: 20px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 0 0 10px 10px;
+  padding-right: 20px;
+  padding-top: 25px;
+  box-sizing: border-box;
 }
 .card__like-button {
   background: transparent url(../image/Heart.svg);
@@ -52,10 +52,9 @@
   height: 18px;
   border: none;
   flex-shrink: 0;
-  cursor:pointer;
-  
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
-.card__like-button:hover { 
+.card__like-button:hover {
   opacity: 0.5;
-  /* cursor:pointer; */
-} 
+}

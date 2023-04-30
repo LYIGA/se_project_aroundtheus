@@ -3,13 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" 
-    content="width=device-width, initial-scale=1.0" 
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="keywords"
-      content="travel, social media, around the U.S, travel content, adventures"
-    />
+      content="travel, social media, around the U.S, travel content, adventures" />
     <meta name="author" content="Akin smith" />
     <title>Around the U.S</title>
     <link href="./pages/index.css" rel="stylesheet" />
@@ -21,29 +18,26 @@
         <img
           src="./image/card-images/logo.svg"
           alt="around the U.S. logo"
-          class="header__logo"
-        />
+          class="header__logo" />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-           class="profile__image"
+            class="profile__image"
             src="./image/jacques-cousteau.png"
-            alt="avatar"
-           />
+            alt="avatar" />
           <div class="profile__info">
             <h1 class="profile__title">Jacques-Cousteau</h1>
-            <button class="profile__edit-button" 
-            id="profile-edit-button" 
-            type="button"
-            ></button>
+            <button
+              class="profile__edit-button"
+              id="profile-edit-button"
+              type="button"></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list"></ul>
-       
         </section>
       </main>
       <footer class="footer page__section">
@@ -53,25 +47,26 @@
 
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button class="modal__close" id="modal-close-button" type="button"></button>
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"></button>
         <h2 class="modal__title">Edit profile</h2>
         <form class="modal__form form" id="profile-edit-form">
           <input
-          class="modal__input"
-           type="text"
+            class="modal__input"
+            type="text"
             placeholder="Name"
             name="title"
             id="profile-title-input"
-            required
-            />
+            required />
           <input
-          class="modal__input modal__description"
-           type="text"
-           placeholder="Explorer"
+            class="modal__input"
+            type="text"
+            placeholder="About"
             name="description"
             id="profile-description-input"
-            required
-            />
+            required />
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
@@ -79,17 +74,13 @@
 
     <template id="card-template">
       <li class="card">
-              <img
-              class="card__image"
-                src=""
-                alt=""
-                />
-              <div class="card__description">
-                <h2 class="card__title"></h2>
-                <button class="card__like-button" type="button"></button>
-              </div>
-            </li>
+        <img class="card__image" src="" alt="" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button class="card__like-button" type="button"></button>
+        </div>
+      </li>
     </template>
     <script src="./scripts/index.js" defer></script>
   </body>
-</html> 
+</html>
