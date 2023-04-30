@@ -20,11 +20,8 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
-  width: 100%;
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  /* padding: 13px 0px; */
-  width: 100%;
   box-sizing: border-box;
 }
 
@@ -42,7 +39,6 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
-  padding-top: 34px;
   padding-right: 64px;
   margin: 0;
   display: flex;
@@ -76,16 +72,15 @@
 }
 
 .modal__close:hover {
-  color: red;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
 }
 
 .modal__form {
   display: flex;
   flex-direction: column;
   margin-top: 54px;
-  width: 430px;
+  width: 358px;
   /* height: 330px; */
 }
 /* @media screen and(max-width: 550px) {
@@ -103,8 +98,7 @@
   font-style: normal;
   color: white;
   margin: 0;
-  margin-bottom: 25px;
-  margin-top: 45px;
+  margin-top: 48px;
   width: 358px;
   height: 50px;
   background-color: black;
@@ -122,7 +116,6 @@
 
 @media screen and (max-width: 568px) {
   .modal__container {
-    padding-left: 19px;
     font-size: 14px;
     padding-top: 48px;
     padding-bottom: 36px;
