@@ -30,7 +30,7 @@ const initialCards = [
 /*--------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileCloseButton = document.querySelector("#modal-close-button");
-const profileEditModal = document.querySelector("#profile-edit-modal");
+const editProfileModal = document.querySelector("#edit-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -89,10 +89,4 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 initialCards.forEach((cardData) => {
   cardsSection.prepend(getCardElement(cardData));
-  //clone the template element with all its content and store it in a cardElement variable
-  //access the card title and image and store them in variables
-  //set the path to the image to the link field of the object
-  //set the image alt text to the name field of the object
-  //set the card title to the name field of the object, too
-  //return the ready HTML element with the filled-in data
 });
