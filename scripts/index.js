@@ -29,8 +29,8 @@ const initialCards = [
 /*            Element                                 */
 /*--------------------------------------------------- */
 const profileEditButton = document.querySelector("#profile-edit-button");
-const profileCloseButton = document.querySelector("#modal-close-button");
-const editProfileModal = document.querySelector("#edit-modal");
+const profileCloseButton = document.querySelector("#profile-close-button");
+const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const profileTitleInput = document.querySelector("#profile-title-input");
@@ -38,6 +38,7 @@ const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 const addNewCardButton = document.querySelector(".profile__add-button");
+const addNewCardModal = document.querySelector("#add-card-modal");
 
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate = document
@@ -51,7 +52,9 @@ const cardsSection = document.querySelector(".cards__list");
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
-
+function openModal() {
+  addNewCardModal.classList.add("modal_opened");
+}
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
