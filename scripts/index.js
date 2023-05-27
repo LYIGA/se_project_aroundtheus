@@ -37,6 +37,7 @@ const profileTitleInput = document.querySelector("#profile-title-input");
 const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
+const addNewCardButton = document.querySelector(".profile__add-button");
 
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardTemplate = document
@@ -86,6 +87,9 @@ profileEditButton.addEventListener("click", () => {
 profileCloseButton.addEventListener("click", closePopup);
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
+// add new card button
+addNewCardButton.addEventListener("click", openModal);
 
 initialCards.forEach((cardData) => {
   cardsSection.prepend(getCardElement(cardData));
