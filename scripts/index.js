@@ -42,10 +42,11 @@ const profileEditForm = document.querySelector("#edit-profile-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const cardEditModal = document.querySelector("#card-edit-modal");
-const cardAddButton = document.querySelector("profile__add-button");
+const cardEditModal = document.querySelector("#profile-edit-modal");
+const cardAddButton = document.querySelector(".profile__add-button");
 const AddCloseButton = cardEditModal.querySelector(".modal__close");
 const cardAddForm = document.querySelector("#add-card-form");
+const previewImgModal = document.querySelector("#modal-preview-image");
 const previewImgButton = previewImgModal.querySelector(".modal__close");
 
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -93,23 +94,19 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  const previewImgModal = document.querySelector(".modal__image-preview");
-
   const previewImgTitile = document.querySelector(".modal__image-title");
 
-  cardImageEventListner.addEventListener("click", () => {
-    previewImgModal.setAttribute(
-      "src",
-      cardImageEventListner.getAttribute("src")
-    );
+  // TODO: define card eventListsner
+  cardImage.addEventListener("click", () => {
+    previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
     previewImgModal.alt = cardData.name;
     previewImgTitile.textContent = cardData.name;
     openPopUp(document.querySelector("modal-preview-image"));
   });
 
-  cardTitleEventListener.textContent = cardData.link;
-  cardImageEventListener.src = cardData.link;
-  cardImageEventListener.alt = cardData.name;
+  cardTitle.textContent = cardData.link;
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
 
   return cardElement;
 }
