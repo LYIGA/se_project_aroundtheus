@@ -67,8 +67,7 @@ function openPopUp(modal) {
 cardAddButton.addEventListener("click", () => openPopUp(profileAddCardModal));
 
 profileCloseButton.addEventListener("click", () =>
-  // closePopup(profileEditModal)
-  console.log("text")
+  closePopup(profileEditModal)
 );
 
 addCloseButton.addEventListener("click", () => closePopup(profileAddCardModal));
@@ -140,7 +139,7 @@ function handleProfileEditSubmit(e) {
 /*                   Event Listeners
 /*----------------------------------------------------------- */
 
-profileEditButton.addEventListener("click", profileEditModal);
+profileEditButton.addEventListener("click", openEditProfileModal);
 
 cardAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
