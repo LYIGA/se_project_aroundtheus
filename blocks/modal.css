@@ -32,6 +32,8 @@
 
 .modal_opened {
   display: flex;
+  visibility: visible;
+  opacity: 1;
 }
 
 .modal__title {
@@ -70,7 +72,9 @@
   left: calc(100% + 5px);
   width: 40px;
   height: 40px;
-  transition: opacity 0.2s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
 }
 
 .modal__close:hover {
