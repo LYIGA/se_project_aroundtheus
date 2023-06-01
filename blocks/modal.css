@@ -61,6 +61,13 @@
   box-sizing: border-box;
 }
 
+.modal__container_content_image {
+  padding: 0;
+  background-color: transparent;
+  max-width: 75vw;
+  max-height: 75vh;
+}
+
 .modal__close {
   background-image: url(../image/close.svg);
   border: none;
@@ -73,9 +80,6 @@
   left: calc(100% + 5px);
   width: 40px;
   height: 40px;
-  visibility: hidden;
-  opacity: 0;
-  transition: visibility 0s 0.6s, opacity 0.6s;
 }
 
 .modal__close:hover {

@@ -47,6 +47,7 @@ const cardAddButton = document.querySelector(".profile__add-button");
 const addCloseButton = document.querySelector("#card-close-button");
 const cardAddForm = document.querySelector("#add-card-form");
 const previewImgModal = document.querySelector("#modal-preview-image");
+const previewImgImage = previewImgModal.querySelector(".modal__image-preview");
 const previewImgButton = previewImgModal.querySelector(".modal__close");
 //
 const addNewCardButton = document.querySelector(".profile__add-button");
@@ -97,8 +98,9 @@ function getCardElement(cardData) {
 
   // TODO: define card eventListsner
   cardImage.addEventListener("click", () => {
-    previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
-    previewImgModal.alt = cardData.name;
+    // previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
+    previewImgImage.src = cardData.link;
+    previewImgImage.alt = cardData.name;
     previewImgTitile.textContent = cardData.name;
     openPopUp(document.querySelector("#modal-preview-image"));
   });
