@@ -56,6 +56,10 @@
   cursor: pointer;
 }
 
+.card__like-button:hover {
+  opacity: 0.5;
+}
+
 .card__delete-button {
   background: url(../image/card-images/delete-icon.svg);
   width: 18px;
@@ -68,6 +72,6 @@
   transition: 0.5s;
 }
 
-.card__like-button:hover {
-  opacity: 0.5;
+.card__delete-button:hover {
+  opacity: 0.6;
 }
