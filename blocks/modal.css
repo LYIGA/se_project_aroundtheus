@@ -8,9 +8,7 @@
   z-index: 999;
   align-items: center;
   justify-content: center;
-
   display: none;
-  align-items: center;
 }
 
 .modal__input {
