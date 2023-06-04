@@ -9,7 +9,7 @@
   z-index: 999;
   align-items: center;
   justify-content: center;
-  display: none;
+  visibility: hidden;
 }
 
 .modal__input {
@@ -30,7 +30,7 @@
 }
 
 .modal_opened {
-  display: flex;
+  /* display: flex; */
   visibility: visible;
   opacity: 1;
   transition: visibility 0s, opacity 0.6s;
