@@ -110,7 +110,7 @@
   }
   .profile__add-button {
     margin: 0;
-    width: 282px;
+    width: 100%;
     background-size: 16px 16px;
   }
   .profile__edit-button {

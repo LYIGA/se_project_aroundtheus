@@ -6,7 +6,7 @@
   align-items: center;
   margin: 0 auto;
   max-width: 880px;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .header__logo {
