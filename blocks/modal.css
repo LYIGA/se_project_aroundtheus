@@ -13,7 +13,6 @@
   visibility: hidden;
   /* testing */
   /* display: none; */
-  background-color: rgba(0, 0, 0, 0.5);
   height: 100vh;
   width: 100vw;
   flex-direction: column-reverse;
@@ -146,7 +145,7 @@
   padding: 0;
   max-width: 75vw;
   max-height: 75vh;
-  display: flex;
+  /* display: flex; */
   width: auto;
 }
 @media screen and (max-width: 568px) {
