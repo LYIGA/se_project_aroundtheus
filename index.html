@@ -44,73 +44,99 @@
         <p class="footer__copyright">&copy; 2022 Around The U.S</p>
       </footer>
     </div>
+    <!--- Edit Modal-->
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
         <button
           class="modal__close"
-          id="profile-close-button"
+          id="modal-close-button"
           type="button"></button>
-        <h1 class="modal__heading">Edit profile</h1>
-        <form class="modal__form" id="edit-profile-form">
+        <p class="modal__heading">Edit Profile</p>
+        <form class="modal__form">
           <input
-            class="modal__input modal__form-title"
+            class="modal__input modal__input_type_name"
+            name="name"
             id="profile-title-input"
-            type="text"
-            name="title"
             placeholder="Name"
-            required />
-          <input
-            class="modal__input modal__form-description"
-            id="profile-description-input"
             type="text"
-            name="description"
-            placeholder="Description"
+            minlength="2"
+            maxlength="40"
             required />
+          <span class="modal__error" id="profile-title-input-error"></span>
+          <input
+            class="modal__input modal__input_type_description"
+            name="description"
+            id="profile-description-input"
+            placeholder="Description"
+            type="text"
+            minlength="2"
+            maxlength="200"
+            required />
+          <span
+            class="modal__error"
+            id="profile-description-input-error"></span>
           <button class="modal__button" type="submit">Save</button>
         </form>
       </div>
     </div>
-    <div class="modal" id="add-card-modal">
+    <!--- Add Card Modal-->
+    <div class="modal" id="new-card-modal">
       <div class="modal__container">
         <button
           class="modal__close"
-          id="card-close-button"
+          id="modal-close-card-button"
           type="button"></button>
-        <h2 class="modal__title">New Place</h2>
+        <p class="modal__heading">New Place</p>
         <form class="modal__form" id="add-card-form">
           <input
-            class="modal__input modal__form-title"
+            class="modal__input modal__input_type_title"
             name="title"
+            id="card-title-input"
             placeholder="Title"
             type="text"
+            maxlength="30"
+            minlength="1"
             required />
+          <span class="modal__error" id="card-title-input-error"></span>
           <input
-            class="modal__input modal__form-description"
-            name="link"
-            placeholder="Image Url"
-            type="text"
+            class="modal__input modal__input_type_url"
+            name="url"
+            id="card-url-input"
+            placeholder="Image URL"
+            type="url"
             required />
-          <button class="modal__button" type="submit">Save</button>
+          <span class="modal__error" id="card-url-input-error"></span>
+          <button
+            class="modal__button modal__button_disabled"
+            id="add-card-modal-save-button"
+            type="submit">
+            Save
+          </button>
         </form>
       </div>
     </div>
-    <div class="modal" id="modal-preview-image">
-      <div class="modal__container modal__container_content_image">
-        <button class="modal__close" type="button"></button>
-        <img class="modal__image-preview" src="#" alt="" />
-        <p class="modal__image-title"></p>
+    <!--- Image Modal-->
+    <div class="modal" id="image-modal">
+      <div class="modal__container-image">
+        <button
+          class="modal__close"
+          id="modal-image-close-button"
+          type="button"></button>
+        <img class="modal__image" src="#" alt="#" />
+        <p class="modal__image-caption"></p>
       </div>
     </div>
     <template id="card-template">
       <li class="card">
-        <img class="card__image" src="" alt="" />
+        <button class="card__button-delete" type="button"></button>
+        <img src="#" alt="#" class="card__image" />
         <div class="card__description">
           <h2 class="card__title"></h2>
           <button class="card__like-button" type="button"></button>
         </div>
-        <button class="card__delete-button"></button>
       </li>
     </template>
-    <script src="./scripts/index.js" defer></script>
+    <script src="./scripts/validation.js"></script>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>
