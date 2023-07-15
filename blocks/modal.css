@@ -92,7 +92,7 @@
   left: calc(100% + 5px);
   width: 40px;
   height: 40px;
-  background-image: url(../images/close.svg);
+  background-image: url(../image/close.svg);
   cursor: pointer;
   border: none;
   background-color: transparent;

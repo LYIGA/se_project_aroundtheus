@@ -38,20 +38,20 @@ const profileDescriptionInput = document.querySelector(
   ".modal__form-description"
 );
 
-const profileEditForm = document.querySelector("#edit-profile-form");
+const profileEditForm = document.querySelector("#profile-edit-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const profileAddCardModal = document.querySelector("#add-card-modal");
+const profileAddCardModal = document.querySelector("#new-card-modal");
 const cardAddButton = document.querySelector(".profile__add-button");
-const addCloseButton = document.querySelector("#card-close-button");
+const addCloseButton = document.querySelector("#modal-close-card-button");
 const cardAddForm = document.querySelector("#add-card-form");
-const previewImgModal = document.querySelector("#modal-preview-image");
-const previewImgImage = previewImgModal.querySelector(".modal__image-preview");
+const previewImgModal = document.querySelector("#image-modal");
+const previewImgImage = previewImgModal.querySelector(".modal__image");
 const previewImgButton = previewImgModal.querySelector(".modal__close");
 //
 const addNewCardButton = document.querySelector(".profile__add-button");
-const addNewCardModal = document.querySelector("#add-card-modal");
+const addNewCardModal = document.querySelector("#new-card-modal");
 
 /*----------------------------------------------------------- */
 /*                Function                                    */
@@ -88,7 +88,7 @@ function getCardElement(cardData) {
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
 
-  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  const cardDeleteButton = cardElement.querySelector(".card__button-delete");
   cardDeleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
@@ -101,7 +101,7 @@ function getCardElement(cardData) {
     previewImgImage.src = cardData.link;
     previewImgImage.alt = cardData.name;
     previewImgTitile.textContent = cardData.name;
-    openPopUp(document.querySelector("#modal-preview-image"));
+    openPopUp(document.querySelector("#image-modal"));
   });
 
   return cardElement;
