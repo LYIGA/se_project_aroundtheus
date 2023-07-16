@@ -58,10 +58,11 @@ const addNewCardModal = document.querySelector("#new-card-modal");
 /*----------------------------------------------------------- */
 
 function closePopup(modal) {
-  modal.classList.remove("modal_opened");
+  modal.classList.remove("modal__opened");
 }
 function openPopUp(modal) {
-  modal.classList.add("modal_opened");
+  modal.classList.add("modal__opened");
+  document.addEventListener("keyup", handleEscape);
 }
 
 cardAddButton.addEventListener("click", () => openPopUp(profileAddCardModal));
@@ -93,19 +94,31 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  const previewImgTitile = document.querySelector(".modal__image-title");
+  const previewImgTitle = document.querySelector(".modal__image-caption");
 
   // TODO: define card eventListsner
   cardImage.addEventListener("click", () => {
     // previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
     previewImgImage.src = cardData.link;
     previewImgImage.alt = cardData.name;
-    previewImgTitile.textContent = cardData.name;
+    previewImgTitle.textContent = cardData.name;
     openPopUp(document.querySelector("#image-modal"));
   });
 
   return cardElement;
 }
+
+const isEscapeEvent = (evt, action) => {
+  if (evt.key === "Escape") {
+    const activePopup = document.querySelector(".modal__opened");
+    action(activePopup);
+  }
+};
+
+const handleEscape = (evt) => {
+  evt.preventDefault();
+  isEscapeEvent(evt, closePopup);
+};
 
 function renderInitialCards(initialCards) {
   initialCards.forEach((cardData) => {
