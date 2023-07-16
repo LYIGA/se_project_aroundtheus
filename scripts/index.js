@@ -144,7 +144,7 @@ profileEditButton.addEventListener("click", openEditProfileModal);
 cardAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const title = e.target.title.value;
-  const link = e.target.link.value;
+  const link = e.target.url.value;
   const cardElement = getCardElement({
     name: title,
     link: link,
