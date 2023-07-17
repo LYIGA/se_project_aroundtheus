@@ -171,7 +171,7 @@ profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 const handleClosePopup = (evt) => {
   if (evt.target.classList.contains("modal__opened")) {
-    closePopup(evt.targe);
+    closePopup(evt.target);
   }
 };
 
