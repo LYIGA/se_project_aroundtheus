@@ -37,7 +37,7 @@ const profileTitleInput = document.querySelector(".modal__form-title");
 const profileDescriptionInput = document.querySelector(
   ".modal__form-description"
 );
-
+const popup = document.querySelectorAll(".modal");
 const profileEditForm = document.querySelector("#profile-edit-form");
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
@@ -168,3 +168,15 @@ cardAddForm.addEventListener("submit", (e) => {
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
+const handleClosePopup = (evt) => {
+  if (
+    evt.target.classList.contains("modal__opened")
+  ){
+    closePopup(evt.targe);
+  }
+}
+
+popup.forEach(popup) => {
+  popup.addEventListener("mousedown", handleClosePopup);
+}
