@@ -170,13 +170,11 @@ cardAddForm.addEventListener("submit", (e) => {
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 const handleClosePopup = (evt) => {
-  if (
-    evt.target.classList.contains("modal__opened")
-  ){
+  if (evt.target.classList.contains("modal__opened")) {
     closePopup(evt.targe);
   }
-}
+};
 
-popup.forEach(popup) => {
+popup.forEach((popup) => {
   popup.addEventListener("mousedown", handleClosePopup);
-}
+});
