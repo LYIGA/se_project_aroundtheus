@@ -59,6 +59,7 @@ const addNewCardModal = document.querySelector("#new-card-modal");
 
 function closePopup(modal) {
   modal.classList.remove("modal__opened");
+  document.removeEventListener("keyup", handleEscape);
 }
 function openPopUp(modal) {
   modal.classList.add("modal__opened");
@@ -108,16 +109,12 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-const isEscapeEvent = (evt, action) => {
+const handleEscape = (evt) => {
+  evt.preventDefault();
   if (evt.key === "Escape") {
     const activePopup = document.querySelector(".modal__opened");
     action(activePopup);
   }
-};
-
-const handleEscape = (evt) => {
-  evt.preventDefault();
-  isEscapeEvent(evt, closePopup);
 };
 
 function renderInitialCards(initialCards) {
@@ -170,7 +167,10 @@ cardAddForm.addEventListener("submit", (e) => {
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 const handleClosePopup = (evt) => {
-  if (evt.target.classList.contains("modal__opened")) {
+  if (
+    evt.target.classList.contains("modal__opened") ||
+    evt.target.classList.contains("modal__close")
+  ) {
     closePopup(evt.target);
   }
 };
