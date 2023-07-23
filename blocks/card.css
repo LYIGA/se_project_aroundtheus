@@ -4,6 +4,7 @@
   list-style: none;
   position: relative;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .card__title {

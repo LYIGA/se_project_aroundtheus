@@ -90,7 +90,7 @@ function getCardElement(cardData) {
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
 
-  const cardDeleteButton = cardElement.querySelector(".card__button-delete");
+  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
   cardDeleteButton.addEventListener("click", () => {
     cardElement.remove();
   });
@@ -110,7 +110,6 @@ function getCardElement(cardData) {
 }
 
 const handleEscape = (evt) => {
-  evt.preventDefault();
   if (evt.key === "Escape") {
     const activePopup = document.querySelector(".modal__opened");
     action(activePopup);
