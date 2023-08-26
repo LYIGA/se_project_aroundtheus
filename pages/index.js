@@ -27,6 +27,13 @@ const initialCards = [
   },
 ];
 
+const cardData = {
+  name: "Yosemite Valley",
+  link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
+};
+
+const card = new Card(cardData, "#card-template");
+
 /*--------------------------------------------------- */
 /*            Element                                 */
 /*--------------------------------------------------- */
@@ -92,10 +99,10 @@ function getCardElement(cardData) {
   cardImage.alt = cardData.name;
   cardTitle.textContent = cardData.name;
 
-  const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  cardDeleteButton.addEventListener("click", () => {
-    cardElement.remove();
-  });
+  // const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+  // cardDeleteButton.addEventListener("click", () => {
+  //   cardElement.remove();
+  // });
 
   const previewImgTitle = document.querySelector(".modal__image-caption");
 

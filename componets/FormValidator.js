@@ -9,4 +9,14 @@ export class FormValidator {
     this._inputErrorClass = options._inputErrorClass;
     this._errorClass = options._errorClass;
   }
+  enableValidation(options) {
+    const formEls = [...document.querySelectorAll(options.formSelector)];
+    formEls.forEach((formEl) => {
+      formEl.addEventListener("submit", (e) => {
+        e.preventDefault();
+      });
+
+      setEventListeners(formEl, options);
+    });
+  }
 }
