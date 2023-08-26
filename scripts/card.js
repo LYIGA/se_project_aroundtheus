@@ -5,6 +5,13 @@ export default class Card {
     this._cardSelector = cardSelector;
   }
 
+  _getTemplate() {
+    return document
+      .querySelector(this._cardSelector)
+      .content.querySelector(".card")
+      .cloneNode(true);
+  }
+
   _setEventListeners() {
     // .card__like-button
     this._cardElment
@@ -32,14 +39,14 @@ export default class Card {
   }
 
   getView() {
-    this._cardSelector = document
-      .querySelector(this._cardSelector)
-      .content.querySelector(".card")
-      .cloneNode(true);
+    this._element = this._getTemplate();
 
-    //get the cars view
+    //get the card view
+    this._cardImage = this._element.querySelector(".card__image");
+    this._cardImage.src = this._link;
     //set event listeners
     this._setEventListeners();
     //return the card
+    return this._element;
   }
 }

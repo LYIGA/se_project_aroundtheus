@@ -1,9 +1,9 @@
-import card from "./Card.js";
-
+import Card from "./Card.js";
+console.log("hello");
 const initialCards = [
   {
     name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
+    link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
   },
   {
     name: "Lake Louise",
@@ -26,13 +26,6 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
-
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://code.s3.yandex.net/web-code/yosemite.jpg",
-};
-
-const card = new Card(cardData, "#card-template");
 
 /*--------------------------------------------------- */
 /*            Element                                 */
@@ -125,9 +118,15 @@ const handleEscape = (evt) => {
   }
 };
 
+const createCard = (data) => {
+  console.log("hello");
+  return new Card(data, cardSelector).getView();
+};
+
 function renderInitialCards(initialCards) {
   initialCards.forEach((cardData) => {
-    const cardElement = getCardElement(cardData);
+    createCard(cardData);
+    // const cardElement = getCardElement(cardData);
     cardListEl.append(cardElement);
   });
 }
