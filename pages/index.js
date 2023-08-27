@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-console.log("hello");
+// console.log("hello");
 const initialCards = [
   {
     name: "Yosemite Valley",
@@ -119,8 +119,8 @@ const handleEscape = (evt) => {
 };
 
 const createCard = (data) => {
-  console.log("hello");
-  return new Card(data, cardSelector).getView();
+  // console.log("hello");
+  return new Card(data, "#card-template").getView();
 };
 
 function renderInitialCards(initialCards) {
