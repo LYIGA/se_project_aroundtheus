@@ -16,19 +16,27 @@ export class FormValidator {
         e.preventDefault();
       });
 
-      setEventListeners(formEl, options);
+      setEventListener(formEl, options);
     });
 
     this._inputList = [...document.querySelectorAll(options._inputSelector)];
-    this._inputList.forEach((inputlist) => {
-      this._inputList.addEventListener("input", (e) => {
-        this._checkVailidity();
+    this._inputList.forEach((listEl) => {
+      listEl.addEventListener("input", () => {
+        this._checkValidity();
       });
     });
   }
-  _checkVailidity(inputEl) {
-    if (inputEl.validity.valid) {
+
+  _showInputError(inputEl, errorMessage) {
+    const inputElId = `${inputEl.id}-error`;
+    const errorEl = this._formEl.querySelector();
+  }
+  _hideInputError() {}
+  _checkValidity(inputEl) {
+    if (!inputEl.validity.valid) {
+      this._showInputError();
     } else {
+      this._hideInputError();
     }
   }
 }
