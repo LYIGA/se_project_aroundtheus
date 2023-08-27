@@ -18,5 +18,17 @@ export class FormValidator {
 
       setEventListeners(formEl, options);
     });
+
+    this._inputList = [...document.querySelectorAll(options._inputSelector)];
+    this._inputList.forEach((inputlist) => {
+      this._inputList.addEventListener("input", (e) => {
+        this._checkVailidity();
+      });
+    });
+  }
+  _checkVailidity(inputEl) {
+    if (inputEl.validity.valid) {
+    } else {
+    }
   }
 }

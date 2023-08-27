@@ -126,7 +126,7 @@ const createCard = (data) => {
 function renderInitialCards(initialCards) {
   initialCards.forEach((cardData) => {
     createCard(cardData);
-    // const cardElement = getCardElement(cardData);
+    const cardElement = getCardElement(cardData);
     cardListEl.append(cardElement);
   });
 }
