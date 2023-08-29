@@ -9,8 +9,8 @@ export class FormValidator {
     this._inputErrorClass = options._inputErrorClass;
     this._errorClass = options._errorClass;
   }
-  enableValidation(options) {
-    const formEls = [...document.querySelectorAll(options.formSelector)];
+  enableValidation() {
+    const formEls = [...document.querySelectorAll(this._options.formSelector)];
     formEls.forEach((formEl) => {
       formEl.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -20,23 +20,23 @@ export class FormValidator {
     });
 
     this._inputList = [...document.querySelectorAll(options._inputSelector)];
-    this._inputList.forEach((listEl) => {
-      listEl.addEventListener("input", () => {
-        this._checkValidity();
+    this._inputList.forEach((inputEl) => {
+      inputEl.addEventListener("input", () => {
+        this._checkValidity(inputEl);
       });
     });
   }
 
-  _showInputError(inputEl, errorMessage) {
+  _showInputError(inputEl) {
     const inputElId = `${inputEl.id}-error`;
     const errorEl = this._formEl.querySelector();
   }
   _hideInputError() {}
   _checkValidity(inputEl) {
     if (!inputEl.validity.valid) {
-      this._showInputError();
+      this._showInputError(inputEl);
     } else {
-      this._hideInputError();
+      this._hideInputError(inputEl);
     }
   }
 }
