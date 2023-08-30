@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import { FormValidator } from "../components/FormValidator.js";
 // console.log("hello");
 const initialCards = [
   {
@@ -77,7 +78,8 @@ profileCloseButton.addEventListener("click", () =>
 addCloseButton.addEventListener("click", () => closePopup(profileAddCardModal));
 
 previewImgButton.addEventListener("click", () => closePopup(previewImgModal));
-
+const addCardValidator = new FormValidator(options, cardAddForm);
+addCardValidator.enableValidation();
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
@@ -169,6 +171,7 @@ cardAddForm.addEventListener("submit", (e) => {
   cardListEl.prepend(cardElement);
   closePopup(addNewCardModal);
   cardAddForm.reset();
+  // call card form validator's toggleButtonState method
 });
 
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
