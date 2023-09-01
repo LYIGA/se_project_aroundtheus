@@ -49,6 +49,8 @@ const profileAddCardModal = document.querySelector("#new-card-modal");
 const cardAddButton = document.querySelector(".profile__add-button");
 const addCloseButton = document.querySelector("#modal-close-card-button");
 const cardAddForm = document.querySelector("#add-card-form");
+const editProfileForm = document.querySelector("#profile-edit-form");
+
 const previewImgModal = document.querySelector("#image-modal");
 const previewImgImage = previewImgModal.querySelector(".modal__image");
 const previewImgButton = previewImgModal.querySelector(".modal__close");
@@ -78,8 +80,22 @@ profileCloseButton.addEventListener("click", () =>
 addCloseButton.addEventListener("click", () => closePopup(profileAddCardModal));
 
 previewImgButton.addEventListener("click", () => closePopup(previewImgModal));
+
+const options = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error",
+};
+
+const editProfileValidator = new FormValidator(options, editProfileForm);
+editProfileValidator.enableValidation();
+
 const addCardValidator = new FormValidator(options, cardAddForm);
 addCardValidator.enableValidation();
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
   const cardImage = cardElement.querySelector(".card__image");
