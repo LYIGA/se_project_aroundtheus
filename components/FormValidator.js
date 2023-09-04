@@ -18,6 +18,7 @@ export class FormValidator {
 
   _setEventListeners() {
     this.inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
+
     this.submitButton = this._formEl.querySelector(this._submitButtonSelector);
     console.log(this.inputEls, this._inputSelector);
     this.inputEls.forEach((inputEl) => {
@@ -56,8 +57,8 @@ export class FormValidator {
   }
 
   toggleButtonState() {
+    console.log("hello", this.inputEls);
     if (this._hasInvalidInput(this.inputEls)) {
-      console.log("hello");
       this.disableButton();
       return;
     } else {
