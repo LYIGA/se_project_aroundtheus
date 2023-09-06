@@ -132,7 +132,7 @@ function getCardElement(cardData) {
 const handleEscape = (evt) => {
   if (evt.key === "Escape") {
     const activePopup = document.querySelector(".modal__opened");
-    action(activePopup);
+    closePopup(activePopup);
   }
 };
 
