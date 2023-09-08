@@ -71,7 +71,10 @@ function openPopUp(modal) {
   document.addEventListener("keyup", handleEscape);
 }
 
-cardAddButton.addEventListener("click", () => openPopUp(profileAddCardModal));
+cardAddButton.addEventListener("click", () => {
+  addCardValidator.toggleButtonState();
+  openPopUp(profileAddCardModal);
+});
 
 profileCloseButton.addEventListener("click", () =>
   closePopup(profileEditModal)
