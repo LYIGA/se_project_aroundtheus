@@ -182,7 +182,7 @@ cardAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const title = e.target.title.value;
   const link = e.target.url.value;
-  const cardElement = getCardElement({
+  const cardElement = createCard({
     name: title,
     link: link,
   });
