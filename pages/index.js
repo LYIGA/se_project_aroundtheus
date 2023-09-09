@@ -99,38 +99,38 @@ editProfileValidator.enableValidation();
 const addCardValidator = new FormValidator(options, cardAddForm);
 addCardValidator.enableValidation();
 
-function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-  const cardImage = cardElement.querySelector(".card__image");
-  const cardTitle = cardElement.querySelector(".card__title");
-  const likeButton = cardElement.querySelector(".card__like-button");
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+//   const cardImage = cardElement.querySelector(".card__image");
+//   const cardTitle = cardElement.querySelector(".card__title");
+//   const likeButton = cardElement.querySelector(".card__like-button");
 
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
 
-  cardImage.src = cardData.link;
-  cardImage.alt = cardData.name;
-  cardTitle.textContent = cardData.name;
+//   cardImage.src = cardData.link;
+//   cardImage.alt = cardData.name;
+//   cardTitle.textContent = cardData.name;
 
-  // const cardDeleteButton = cardElement.querySelector(".card__delete-button");
-  // cardDeleteButton.addEventListener("click", () => {
-  //   cardElement.remove();
-  // });
+//   // const cardDeleteButton = cardElement.querySelector(".card__delete-button");
+//   // cardDeleteButton.addEventListener("click", () => {
+//   //   cardElement.remove();
+//   // });
 
-  const previewImgTitle = document.querySelector(".modal__image-caption");
+//   const previewImgTitle = document.querySelector(".modal__image-caption");
 
-  // TODO: define card eventListsner
-  cardImage.addEventListener("click", () => {
-    // previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
-    previewImgImage.src = cardData.link;
-    previewImgImage.alt = cardData.name;
-    previewImgTitle.textContent = cardData.name;
-    openPopUp(document.querySelector("#image-modal"));
-  });
+//   // TODO: define card eventListsner
+//   cardImage.addEventListener("click", () => {
+//     // previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
+//     previewImgImage.src = cardData.link;
+//     previewImgImage.alt = cardData.name;
+//     previewImgTitle.textContent = cardData.name;
+//     openPopUp(document.querySelector("#image-modal"));
+//   });
 
-  return cardElement;
-}
+//   return cardElement;
+// }
 
 const handleEscape = (evt) => {
   if (evt.key === "Escape") {
@@ -146,8 +146,7 @@ const createCard = (data) => {
 
 function renderInitialCards(initialCards) {
   initialCards.forEach((cardData) => {
-    createCard(cardData);
-    const cardElement = getCardElement(cardData);
+    const cardElement = createCard(cardData);
     cardListEl.append(cardElement);
   });
 }
