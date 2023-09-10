@@ -99,6 +99,8 @@ editProfileValidator.enableValidation();
 const addCardValidator = new FormValidator(options, cardAddForm);
 addCardValidator.enableValidation();
 
+const previewImgTitle = document.querySelector(".modal__image-caption");
+
 // function getCardElement(cardData) {
 //   const cardElement = cardTemplate.cloneNode(true);
 //   const cardImage = cardElement.querySelector(".card__image");
@@ -132,10 +134,6 @@ addCardValidator.enableValidation();
 //   return cardElement;
 // }
 
-const handleCardClick = (card) => {
-  // open the card popup
-};
-
 const handleEscape = (evt) => {
   if (evt.key === "Escape") {
     const activePopup = document.querySelector(".modal__opened");
@@ -145,8 +143,16 @@ const handleEscape = (evt) => {
 
 const createCard = (data) => {
   // console.log("hello");
-  return new Card(data, "#card-template").getView();
+  return new Card(data, "#card-template", handleCardClick).getView();
 };
+
+function handleCardClick(name, link) {
+  // previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
+  previewImgImage.src = link;
+  previewImgImage.alt = name;
+  previewImgTitle.textContent = cardData.name;
+  openPopUp(document.querySelector("#image-modal"));
+}
 
 function renderInitialCards(initialCards) {
   initialCards.forEach((cardData) => {
