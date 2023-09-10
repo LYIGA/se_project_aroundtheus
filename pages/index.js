@@ -150,7 +150,7 @@ function handleCardClick(name, link) {
   // previewImgModal.setAttribute("src", cardImage.getAttribute("src"));
   previewImgImage.src = link;
   previewImgImage.alt = name;
-  previewImgTitle.textContent = cardData.name;
+  previewImgTitle.textContent = name;
   openPopUp(document.querySelector("#image-modal"));
 }
 
