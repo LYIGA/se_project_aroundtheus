@@ -132,6 +132,10 @@ addCardValidator.enableValidation();
 //   return cardElement;
 // }
 
+const handleCardClick = (card) => {
+  // open the card popup
+};
+
 const handleEscape = (evt) => {
   if (evt.key === "Escape") {
     const activePopup = document.querySelector(".modal__opened");

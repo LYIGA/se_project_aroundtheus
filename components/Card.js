@@ -44,6 +44,15 @@ export default class Card {
     //get the card view
     this._cardImage = this._element.querySelector(".card__image");
     this._cardImage.src = this._link;
+    // set the alt text
+    this._cardImage.alt = this._name;
+
+    // select the card title element
+    // set textcontent of card title element
+
+    this._cardTitle = this._element.querySelector(".card__title");
+    this._cardTitle.textContent = this._name;
+
     //set event listeners
     this._setEventListener();
     //return the card
