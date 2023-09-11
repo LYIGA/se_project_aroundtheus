@@ -13,10 +13,10 @@ export class FormValidator {
       e.preventDefault();
     });
 
-    this._setEventListeners();
+    this._setEventListener();
   }
 
-  _setEventListeners() {
+  _setEventListener() {
     this.inputEls = [...this._formEl.querySelectorAll(this._inputSelector)];
 
     this.submitButton = this._formEl.querySelector(this._submitButtonSelector);
