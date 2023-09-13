@@ -151,7 +151,7 @@ function handleCardClick(name, link) {
   previewImgImage.src = link;
   previewImgImage.alt = name;
   previewImgTitle.textContent = name;
-  openPopUp(document.querySelector("#image-modal"));
+  openPopUp(previewImgModal);
 }
 function renderInitialCards(initialCards) {
   initialCards.forEach((cardData) => {
@@ -208,7 +208,7 @@ const handleClosePopup = (evt) => {
     evt.target.classList.contains("modal") ||
     evt.target.classList.contains("modal__close")
   ) {
-    closePopup(evt.target);
+    closePopup(evt.currentTarget);
   }
 };
 
