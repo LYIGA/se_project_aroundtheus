@@ -79,9 +79,9 @@ cardAddButton.addEventListener("click", () => {
 //   closePopup(profileEditModal)
 // );
 
-addCloseButton.addEventListener("click", () => closePopup(profileAddCardModal));
-previewImgButton.addEventListener("click", () => closePopup(previewImgModal));
-previewImgButton.addEventListener("click", () => closePopup(previewImgModal));
+// addCloseButton.addEventListener("click", () => closePopup(profileAddCardModal));
+// previewImgButton.addEventListener("click", () => closePopup(previewImgModal));
+// previewImgButton.addEventListener("click", () => closePopup(previewImgModal));
 const options = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
