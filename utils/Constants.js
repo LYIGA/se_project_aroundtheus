@@ -30,7 +30,7 @@ const object6 = {
 
 const initialCards = [object1, object2, object3, object4, object5, object6];
 
-const profileModal = document.querySelector("#edit-profile-modal");
+const profileModal = document.querySelector("#profile-edit-modal");
 const profileModalCloseButton = profileModal.querySelector(".modal__close");
 const profileModalForm = profileModal.querySelector(".modal__form");
 const editProfileButton = document.querySelector(".profile__edit-button");
@@ -45,16 +45,16 @@ const profileDescriptionEdit = profileModal.querySelector(
 );
 
 const addCardButton = document.querySelector(".profile__add-button");
-const addCardModal = document.querySelector("#add-modal");
+const addCardModal = document.querySelector("#new-card-modal");
 const addCardCloseButton = addCardModal.querySelector(".modal__close");
-const addCardSubmit = addCardModal.querySelector("#add-card-info");
-const addCardTitle = addCardSubmit.querySelector(".modal__input_type_title");
+const addCardSubmit = addCardModal.querySelector("#add-card-modal-save-button");
+const addCardTitle = addCardModal.querySelector(".modal__input_type_title");
 
 const cardList = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 
-const previewImageModal = document.querySelector(".modal-images-preview");
+const previewImageModal = document.querySelector("#image-modal");
 const previewImageElement = document.querySelector(".modal__preview");
 const previewImageClose = previewImageModal.querySelector(".modal__close");
 const previewImageTitle = document.querySelector(".modal__title");

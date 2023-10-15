@@ -3,9 +3,9 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../scripts/PopupWithForm.js";
 
-const newCardModal = new PopupWithForm("#add-modal", () => {});
+const newCardModal = new PopupWithForm("#new-card-modal", () => {});
 newCardModal.setEventListeners();
-const newProfileModal = new PopupWithForm("#edit-profile-modal", () => {});
+const newProfileModal = new PopupWithForm("#profile-edit-modal", () => {});
 newProfileModal.setEventListeners();
 
 function openModal(modal) {
@@ -81,7 +81,7 @@ const config = {
 
 function createCard(initialCards) {
   const card = new Card(initialCards, "#card-template", handleImageClick);
-  return card.getview();
+  return card.getView();
 }
 
 const editFormValidator = new FormValidator(config, profileModalForm);
