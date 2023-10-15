@@ -151,13 +151,13 @@ function handleCardClick(name, link) {
   previewImgTitle.textContent = name;
   openPopUp(previewImgModal);
 }
-function renderInitialCards(initialCards) {
-  initialCards.forEach((cardData) => {
-    const cardElement = createCard(cardData);
-    cardListEl.append(cardElement);
-  });
-}
-renderInitialCards(initialCards);
+// function renderInitialCards(initialCards) {
+//   initialCards.forEach((cardData) => {
+//     const cardElement = createCard(cardData);
+//     cardListEl.append(cardElement);
+//   });
+// }
+// renderInitialCards(initialCards);
 
 function fillProfileForm() {
   profileTitleInput.value = profileTitle.textContent;
