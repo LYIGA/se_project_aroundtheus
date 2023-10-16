@@ -2,7 +2,13 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../scripts/PopupWithForm.js";
-import UserInfo from "../components/UserInfo.js";
+import UserInfo from "../components/userInfor.js";
+import { initialCards } from "../utils/Constants.js";
+
+import (initialCards, profileModal, profileModalCloseButton, profileModalForm, editProfileButton,
+  profileFormElement, profileTitle, profileDescriptionEdit, profileTitleEdit, profileDescriptionEdit, addCardButton,
+  addCardModal, addCardCloseButton, addCardSubmit, addCardTitle, cardList, cardTemplate, previewImageClose,
+  previewImageTitle, modals  ) from '../utils/constants.js';
 
 const newCardModal = new PopupWithForm("#new-card-modal", () => {});
 newCardModal.setEventListeners();
@@ -38,9 +44,9 @@ function closeByEscape(evt) {
   }
 }
 
-function handleImageClick(data) {
-  previewImageElement.setAttribute("src", data.link);
-  previewImageElement.setAttribute("alt", data.name);
+function handleImageClick(name, link) {
+  previewImageElement.setAttribute("src", link);
+  previewImageElement.setAttribute("alt", name);
   openModal(previewImageModal);
   previewImageTitle.textContent = data.name;
 }
