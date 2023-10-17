@@ -2,13 +2,30 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "../scripts/PopupWithForm.js";
-import UserInfo from "../components/userInfor.js";
-import { initialCards } from "../utils/Constants.js";
+import UserInfo from "../components/UserInfo.js";
+// import { initialCards } from "../utils/Constants.js";
 
-import (initialCards, profileModal, profileModalCloseButton, profileModalForm, editProfileButton,
-  profileFormElement, profileTitle, profileDescriptionEdit, profileTitleEdit, profileDescriptionEdit, addCardButton,
-  addCardModal, addCardCloseButton, addCardSubmit, addCardTitle, cardList, cardTemplate, previewImageClose,
-  previewImageTitle, modals  ) from '../utils/constants.js';
+import {
+  initialCards,
+  profileModal,
+  profileModalCloseButton,
+  profileModalForm,
+  editProfileButton,
+  profileFormElement,
+  profileTitle,
+  profileTitleEdit,
+  profileDescriptionEdit,
+  addCardButton,
+  addCardModal,
+  addCardCloseButton,
+  addCardSubmit,
+  addCardTitle,
+  cardList,
+  cardTemplate,
+  previewImageClose,
+  previewImageTitle,
+  modals,
+} from "../utils/Constants.js";
 
 const newCardModal = new PopupWithForm("#new-card-modal", () => {});
 newCardModal.setEventListeners();
@@ -20,10 +37,13 @@ function openModal(modal) {
   // document.addEventListener("keydown", closeByEscape);
 }
 
+const userInfo = new UserInfo(".profile__title", ".profile__description");
+
 function fillProfileForm() {
   newProfileModal.open();
-  profileTitleEdit.value = profileTitle.textContent;
-  profileDescriptionEdit.value = descriptionJob.textContent;
+  const userData = userInfo.getUserInfo();
+  profileTitleEdit.value = userData.name;
+  profileDescriptionEdit.value = userData.title;
 }
 
 editProfileButton.addEventListener("click", fillProfileForm);

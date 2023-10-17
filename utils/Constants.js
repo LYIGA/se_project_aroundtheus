@@ -49,9 +49,9 @@ export const profileTitle = profileFormElement.querySelector(".profile__title");
 export const descriptionJob = profileFormElement.querySelector(
   ".profile__description"
 );
-export const profileTitleEdit = document.querySelector("#profile-title-edit");
+export const profileTitleEdit = document.querySelector("#profile-title-input");
 export const profileDescriptionEdit = profileModal.querySelector(
-  "#profile-description-edit"
+  "#profile-description-input"
 );
 
 export const addCardButton = document.querySelector(".profile__add-button");
