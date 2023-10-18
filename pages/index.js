@@ -29,7 +29,9 @@ import {
   addCardForm,
 } from "../utils/Constants.js";
 
-const newCardModal = new PopupWithForm("#new-card-modal", () => {});
+const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
+  console.log(data);
+});
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", () => {});
 newProfileModal.setEventListeners();
