@@ -25,6 +25,8 @@ import {
   previewImageClose,
   previewImageTitle,
   modals,
+  descriptionJob,
+  addCardForm,
 } from "../utils/Constants.js";
 
 const newCardModal = new PopupWithForm("#new-card-modal", () => {});
@@ -112,7 +114,7 @@ function createCard(initialCards) {
 }
 
 const editFormValidator = new FormValidator(config, profileModalForm);
-const addFormValidator = new FormValidator(config, addCardSubmit);
+const addFormValidator = new FormValidator(config, addCardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
