@@ -29,37 +29,37 @@ import {
   addCardForm,
 } from "../utils/Constants.js";
 
-const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
-  console.log(data);
-});
-newCardModal.setEventListeners();
-const newProfileModal = new PopupWithForm("#profile-edit-modal", () => {});
-newProfileModal.setEventListeners();
-
-function openModal(modal) {
-  // modal.classList.add("modal_opened");
-  // document.addEventListener("keydown", closeByEscape);
-}
-
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
+const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
+  const card = createCard({
+    name: data.title,
+    link: data.url,
+  });
+  section.addItem(card);
+  newCardModal.close();
+ 
+  addFormValidator.toggleButtonState();
+});
+newCardModal.setEventListeners();
+const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
+  userInfo.setUserInfo(data);
+  newProfileModal.close();
+});
+newProfileModal.setEventListeners();
+
+editProfileButton.addEventListener("click", fillProfileForm);
+
 function fillProfileForm() {
-  newProfileModal.open();
   const userData = userInfo.getUserInfo();
   profileTitleEdit.value = userData.name;
   profileDescriptionEdit.value = userData.title;
+  newProfileModal.open();
 }
-
-editProfileButton.addEventListener("click", fillProfileForm);
 
 addCardButton.addEventListener("click", () => {
   newCardModal.open();
 });
-
-function closeModal(modal) {
-  // modal.classList.remove("modal_opened");
-  // document.removeEventListener("keydown", closeByEscape);
-}
 
 function closeByEscape(evt) {
   if (evt.key === "Escape") {
@@ -74,13 +74,6 @@ function handleImageClick(name, link) {
   openModal(previewImageModal);
   previewImageTitle.textContent = data.name;
 }
-
-profileModalForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleEdit.value;
-  descriptionJob.textContent = profileDescriptionEdit.value;
-  closeModal(profileModal);
-});
 
 addCardSubmit.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -110,8 +103,8 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-function createCard(initialCards) {
-  const card = new Card(initialCards, "#card-template", handleImageClick);
+function createCard(cardData) {
+  const card = new Card(cardData, "#card-template", handleImageClick);
   return card.getView();
 }
 
