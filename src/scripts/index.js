@@ -1,8 +1,8 @@
-import Card from "../../components/Card.js";
-import FormValidator from "../../components/FormValidator.js";
-import Section from "../../components/Section.js";
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+import Section from "../components/Section.js";
 import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "../../components/UserInfo.js";
+import UserInfo from "../components/UserInfo.js";
 import '../scripts/pages';
 // import { initialCards } from "../utils/Constants.js";
 
@@ -28,7 +28,7 @@ import {
   modals,
   descriptionJob,
   addCardForm,
-} from "../../utils/Constants.js";
+} from "../utils/Constants.js";
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
