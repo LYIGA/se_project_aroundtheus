@@ -3,6 +3,7 @@ import FormValidator from "../../components/FormValidator.js";
 import Section from "../../components/Section.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "../../components/UserInfo.js";
+import '../scripts/pages';
 // import { initialCards } from "../utils/Constants.js";
 
 import {

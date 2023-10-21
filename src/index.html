@@ -9,14 +9,14 @@
       content="travel, social media, around the U.S, travel content, adventures" />
     <meta name="author" content="Akin smith" />
     <title>Around the U.S</title>
-    <link href="./pages/index.css" rel="stylesheet" />
     <link rel="icon" href="favicon.ico" />
   </head>
   <body class="page">
     <div class="page__content">
       <header class="header page__section">
         <img
-          src="./image/card-images/logo.svg"
+          src="<%=require('./image/card-images/logo.svg')%>" alt="Logo">
+          <card-images>logo.png')%>" alt="Logo">"
           alt="around the U.S. logo"
           class="header__logo" />
       </header>
@@ -24,7 +24,7 @@
         <section class="profile page__section">
           <img
             class="profile__image"
-            src="./image/jacques-cousteau.png"
+            src="<%=require('./image/jacques-cousteau.png')%>"
             alt="avatar" />
           <div class="profile__info">
             <h1 class="profile__title">Jacques-Cousteau</h1>
@@ -137,7 +137,5 @@
         </div>
       </li>
     </template>
-
-    <script src="./pages/index.js" type="module"></script>
   </body>
 </html>
