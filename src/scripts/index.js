@@ -2,6 +2,7 @@ import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "./PopupWithForm.js";
+import PopUpWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "./index.css";
 // import { initialCards } from "../utils/Constants.js";
@@ -62,7 +63,11 @@ addCardButton.addEventListener("click", () => {
   newCardModal.open();
 });
 
-// const newModalImage = new PopupWithImage('#modal__image');
+const imagePopUp = new PopUpWithImage(
+  "#modal__image-caption",
+  handleImageClick
+);
+imagePopUp.setEventListeners();
 
 function handleImageClick(name, link) {
   // myPopupWithImage.open(name, link);
