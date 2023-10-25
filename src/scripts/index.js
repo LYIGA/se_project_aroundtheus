@@ -3,6 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
+import './index.css';
 // import { initialCards } from "../utils/Constants.js";
 
 import {
@@ -28,6 +29,7 @@ import {
   descriptionJob,
   addCardForm,
 } from "../utils/Constants.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -39,7 +41,7 @@ const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
   section.addItem(card);
   newCardModal.close();
 
-  addFormValidator.toggleButtonState();
+
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
@@ -58,21 +60,18 @@ function fillProfileForm() {
 }
 
 addCardButton.addEventListener("click", () => {
+  addFormValidator.toggleButtonState();
   newCardModal.open();
 });
 
-function closeByEscape(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
-  }
-}
+// const newModalImage = new PopupWithImage('#modal__image');
 
 function handleImageClick(name, link) {
-  previewImageElement.setAttribute("src", link);
-  previewImageElement.setAttribute("alt", name);
-  openModal(previewImageModal);
-  previewImageTitle.textContent = data.name;
+  // myPopupWithImage.open(name, link);
+  // previewImageElement.setAttribute("src", link);
+  // previewImageElement.setAttribute("alt", name);
+  // openModal(previewImageModal);
+  // previewImageTitle.textContent = data.name;
 }
 
 addCardSubmit.addEventListener("submit", function (e) {
