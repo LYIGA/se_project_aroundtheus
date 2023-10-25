@@ -3,7 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
-import './index.css';
+import "./index.css";
 // import { initialCards } from "../utils/Constants.js";
 
 import {
@@ -29,7 +29,7 @@ import {
   descriptionJob,
   addCardForm,
 } from "../utils/Constants.js";
-import PopupWithImage from "./PopupWithImage.js";
+import PopupWithImage from "../PopupWithImage.js";
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -40,8 +40,6 @@ const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
   });
   section.addItem(card);
   newCardModal.close();
-
-
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
