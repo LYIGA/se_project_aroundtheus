@@ -1,8 +1,8 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import PopupWithForm from "./PopupWithForm.js";
-import PopUpWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../scripts/PopupWithForm.js";
+import PopUpWithImage from "../scripts/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "./index.css";
 // import { initialCards } from "../utils/Constants.js";
@@ -30,7 +30,7 @@ import {
   descriptionJob,
   addCardForm,
 } from "../utils/Constants.js";
-import PopupWithImage from "../PopupWithImage.js";
+import PopupWithImage from "../scripts/PopupWithImage.js";
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -63,10 +63,7 @@ addCardButton.addEventListener("click", () => {
   newCardModal.open();
 });
 
-const imagePopUp = new PopUpWithImage(
-  "#modal__image-caption",
-  handleImageClick
-);
+const imagePopUp = new PopUpWithImage("#image-modal", handleImageClick);
 imagePopUp.setEventListeners();
 
 function handleImageClick(name, link) {
