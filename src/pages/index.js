@@ -1,8 +1,8 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import PopUpWithImage from "../scripts/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import PopUpWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "./index.css";
 // import { initialCards } from "../utils/Constants.js";
@@ -30,7 +30,7 @@ import {
   descriptionJob,
   addCardForm,
 } from "../utils/Constants.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -67,11 +67,8 @@ const imagePopUp = new PopUpWithImage("#image-modal", handleImageClick);
 imagePopUp.setEventListeners();
 
 function handleImageClick(name, link) {
-  // myPopupWithImage.open(name, link);
-  // previewImageElement.setAttribute("src", link);
-  // previewImageElement.setAttribute("alt", name);
-  // openModal(previewImageModal);
-  // previewImageTitle.textContent = data.name;
+  imagePopUp.open(name, link);
+
 }
 
 addCardSubmit.addEventListener("submit", function (e) {
@@ -82,7 +79,8 @@ addCardSubmit.addEventListener("submit", function (e) {
     name: title,
     link: image,
   });
-  cardList.prepend(card);
+  // cardList.prepend(card);
+  section.addItem(card);
   closeModal(addCardModal);
   e.target.reset();
   addFormValidator.toggleButtonState();
