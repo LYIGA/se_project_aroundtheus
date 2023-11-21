@@ -68,7 +68,6 @@ imagePopUp.setEventListeners();
 
 function handleImageClick(name, link) {
   imagePopUp.open(name, link);
-
 }
 
 addCardSubmit.addEventListener("submit", function (e) {
