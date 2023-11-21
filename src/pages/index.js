@@ -120,3 +120,14 @@ const section = new Section(
   ".cards__list"
 );
 section.rendererItems();
+
+
+fetch("https://around-api.en.tripleten-services.com/v1/users/card", {
+  headers: {
+    authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6"
+  }
+})
+  .then(res => res.json())
+  .then((result) => {
+    console.log(result);
+  });
