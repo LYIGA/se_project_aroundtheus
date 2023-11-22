@@ -5,6 +5,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopUpWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "./index.css";
+import Api from "../components/API.js";
 // import { initialCards } from "../utils/Constants.js";
 
 import {
@@ -31,6 +32,14 @@ import {
   addCardForm,
 } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
+
+const api = new Api();
+
+api.getUserInfo().then((res) => {
+  console.log(res);
+  debugger;
+  userInfo.setUserInfo({ name: res.name, title: res.about });
+});
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -121,13 +130,12 @@ const section = new Section(
 );
 section.rendererItems();
 
-
-fetch("https://around-api.en.tripleten-services.com/v1/users/card", {
+fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
   headers: {
-    authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6"
-  }
+    authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+  },
 })
-  .then(res => res.json())
+  .then((res) => res.json())
   .then((result) => {
     console.log(result);
   });
