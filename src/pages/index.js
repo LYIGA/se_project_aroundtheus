@@ -41,6 +41,7 @@ api.getUserInfo().then((res) => {
   userInfo.setUserInfo({ name: res.name, title: res.about });
 });
 
+// api.updateUserInfo();
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
 const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
@@ -53,8 +54,12 @@ const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
-  userInfo.setUserInfo(data);
-  newProfileModal.close();
+  api
+    .updateUserInfo({ name: data.name, about: data.title })
+    .then((newUserObj) => {
+      userInfo.setUserInfo({ name: newUserObj.name, title: newUserObj.about });
+      newProfileModal.close();
+    });
 });
 newProfileModal.setEventListeners();
 

@@ -78,6 +78,30 @@
         </form>
       </div>
     </div>
+
+    <!--- Avatar Modal-->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"></button>
+        <h2 class="modal__heading">Edit Profile</h2>
+        <form class="modal__form" id="avatar-edit-form" novalidate>
+          <input
+            class="modal__input modal__input_type_name modal__form-title"
+            name="link"
+            id="avatar-link-input"
+            placeholder="Name"
+            type="text"
+            minlength="2"
+            maxlength="40"
+            required />
+          <span class="modal__error" id="avatar-link-input-error"></span>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
     <!--- Add Card Modal-->
     <div class="modal" id="new-card-modal">
       <div class="modal__container">
