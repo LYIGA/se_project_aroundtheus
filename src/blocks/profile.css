@@ -71,6 +71,11 @@
   overflow: hidden;
   max-width: 100%;
 }
+
+.profile__avatar-container {
+  position: relative;
+}
+
 .profile__image {
   border-radius: 50%;
   height: 120px;
@@ -78,6 +83,19 @@
   object-fit: cover;
   background-position: center;
   margin-right: 30px;
+}
+
+.profile__edit-avatar {
+  all: unset;
+  background: transparent url("../image/avatar-edit.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @media screen and (min-width: 320px) and (max-width: 900px) {

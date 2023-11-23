@@ -5,7 +5,8 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import PopUpWithImage from "../components/PopupWithImage.js";
 import UserInfo from "../components/UserInfo.js";
 import "./index.css";
-import Api from "../components/API.js";
+import Api from "../components/Api.js";
+import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 // import { initialCards } from "../utils/Constants.js";
 
 import {
@@ -30,6 +31,7 @@ import {
   modals,
   descriptionJob,
   addCardForm,
+  avatarContainer,
 } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
@@ -37,12 +39,28 @@ const api = new Api();
 
 api.getUserInfo().then((res) => {
   console.log(res);
-  debugger;
   userInfo.setUserInfo({ name: res.name, title: res.about });
+  userInfo.setAvatarImg(res);
+});
+
+const avatarPopup = new PopupWithForm("#avatar-edit-modal", (avatar) => {
+  api.updateAvatar(avatar).then((res) => {
+    userInfo.setAvatarImg(res);
+    avatarPopup.close();
+  });
+});
+avatarPopup.setEventListeners();
+
+avatarContainer.addEventListener("click", () => {
+  avatarPopup.open();
 });
 
 // api.updateUserInfo();
-const userInfo = new UserInfo(".profile__title", ".profile__description");
+const userInfo = new UserInfo(
+  ".profile__title",
+  ".profile__description",
+  ".profile__image"
+);
 
 const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
   const card = createCard({

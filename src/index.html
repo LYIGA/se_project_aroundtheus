@@ -21,10 +21,10 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./image/jacques-cousteau.png')%>"
-            alt="avatar" />
+          <div class="profile__avatar-container">
+            <img class="profile__image" alt="avatar" />
+            <button class="profile__edit-avatar"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title"></h1>
             <button
@@ -86,16 +86,14 @@
           class="modal__close"
           id="modal-close-button"
           type="button"></button>
-        <h2 class="modal__heading">Edit Profile</h2>
+        <h2 class="modal__heading">Edit Avatar</h2>
         <form class="modal__form" id="avatar-edit-form" novalidate>
           <input
             class="modal__input modal__input_type_name modal__form-title"
-            name="link"
+            name="avatar"
             id="avatar-link-input"
-            placeholder="Name"
+            placeholder="Url"
             type="text"
-            minlength="2"
-            maxlength="40"
             required />
           <span class="modal__error" id="avatar-link-input-error"></span>
           <button class="modal__button" type="submit">Save</button>

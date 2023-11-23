@@ -1,21 +1,25 @@
 export default class UserInfo {
-  constructor(userNameSelector, jobSelector) {
-    this._name = document.querySelector(userNameSelector);
-    this._title = document.querySelector(jobSelector);
+  constructor(profileTitle, profileDescription, avatar) {
+    this._profileTitle = document.querySelector(profileTitle);
+    this._profileDescription = document.querySelector(profileDescription);
+    this._avatar = document.querySelector(avatar);
   }
 
   getUserInfo() {
-    const info = {
-      name: this._name.textContent,
-      title: this._title.textContent,
+    const userInfo = {
+      name: this._profileTitle.textContent,
+      description: this._profileDescription.textContent,
     };
-    return info;
-    //returns an object with info about the user.
+    return userInfo;
   }
 
-  setUserInfo(data) {
-    this._name.textContent = data.name;
-    this._title.textContent = data.title;
-    //takses a new user data and adds it on the page.
+  // TODO: think how can you merge setUserInfo method and setAvatarImg method, in the end of the day one method is better
+  setUserInfo({ name, about }) {
+    this._profileTitle.textContent = name;
+    this._profileDescription.textContent = about;
+  }
+
+  setAvatarImg({ avatar }) {
+    this._avatar.src = avatar;
   }
 }

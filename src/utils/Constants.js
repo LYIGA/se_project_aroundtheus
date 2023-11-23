@@ -37,10 +37,11 @@ export const initialCards = [
   object6,
 ];
 
-export const profileModal = document.querySelector("#profile-edit-modal");
+export const avatarContainer = document.querySelector('.profile__avatar-container');
+export const avaterModal = document.querySelector("#avatar-edit-modal");
 export const profileModalCloseButton =
-  profileModal.querySelector(".modal__close");
-export const profileModalForm = profileModal.querySelector(".modal__form");
+  avaterModal.querySelector(".modal__close");
+export const profileModalForm = avaterModal.querySelector(".modal__form");
 export const editProfileButton = document.querySelector(
   ".profile__edit-button"
 );
@@ -50,7 +51,7 @@ export const descriptionJob = profileFormElement.querySelector(
   ".profile__description"
 );
 export const profileTitleEdit = document.querySelector("#profile-title-input");
-export const profileDescriptionEdit = profileModal.querySelector(
+export const profileDescriptionEdit = avaterModal.querySelector(
   "#profile-description-input"
 );
 
@@ -61,6 +62,11 @@ export const addCardForm = addCardModal.querySelector("#add-card-form");
 export const addCardSubmit = addCardModal.querySelector(
   "#add-card-modal-save-button"
 );
+
+export const avatar = document.querySelector("#avatar-url");
+export const deleteCardModal = document.querySelector("#delete-card-modal");
+export const avatarEditImg = document.querySelector(".profile__img");
+export const editProfileForm = document.querySelector("#profile-edit-form");
 export const addCardTitle = addCardModal.querySelector(
   ".modal__input_type_title"
 );
