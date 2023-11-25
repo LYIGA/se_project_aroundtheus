@@ -3,18 +3,28 @@ import Popup from "./Popup.js";
 export default class PopupWithConfirmation extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
-    this._deletePopup = this._popupElement.querySelector(".modal__form");
+    this._popupForm = this._popupElement.querySelector(".modal__form");
+    this._saveButton = this._popupForm.querySelector(".modal__button");
+    this._saveButtonText = this._saveButton.textContent;
   }
 
-  _setConfirmation(action) {
-    this._setConfirmation = action;
+  setLoading(isLoading) {
+    if (isLoading) {
+      this._saveButton.textContent = "Saving...";
+    } else {
+      this._saveButton.textContent = this._saveButtonText;
+    }
+  }
+
+  setSubmitAction(action) {
+    this._handleFormSubmit = action;
   }
 
   setEventListeners() {
-    super.setEventListeners();
-    this._deletePopup.addEventListener("submit", (e) => {
-      e.preventDefault();
-      this._setConfirmation(e);
+    this._popupForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      this._handleFormSubmit();
     });
+    super.setEventListeners();
   }
 }

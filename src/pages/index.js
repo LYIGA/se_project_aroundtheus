@@ -102,6 +102,15 @@ function handleImageClick(name, link) {
   imagePopUp.open(name, link);
 }
 
+// handle form submit //
+function handleAddCardSubmit({ title, url }) {
+  api.addNewCard({ name: title, link: url }).then((data) => {
+    console.log(data);
+
+    section.addItem(data);
+  });
+}
+
 addCardSubmit.addEventListener("submit", function (e) {
   e.preventDefault();
   const title = e.target.title.value;

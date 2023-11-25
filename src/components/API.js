@@ -54,3 +54,52 @@ export default class Api {
       .then((result) => result);
   }
 }
+
+
+getInitialCards() {
+  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards", {
+    method: "GET",
+    headers: {
+      authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+.then((res) => this._checkResponse(res))
+}
+})
+
+addCard(card) {
+  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards"
+    method: "POST",
+    headers: {
+      authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+.then((res) => this._checkResponse(res))
+} body: JSON.stringify({
+      name: card.name,
+      link: card.link,
+    }),
+    .then((res) => this._checkResponse(res));
+}
+
+deleteCard(id) {
+  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards/${id}", {
+    method: "DELETE",
+    headers: this._headers,
+  }).then((res) => this._checkResponse(res));
+}
+
+likeCard(cardId) {
+  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes", {
+    method: "PUT",
+    headers: this._headers,
+  }).then((res) => this._checkResponse(res));
+}
+
+unlikeCard(cardId) {
+  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes", {
+    method: "DELETE",
+    headers: this._headers,
+  }).then((res) => this._checkResponse(res));
+}
+
+loadPageContent() {
+  return Promise.all([this.getInitialCards(), this.getUserInfo()]);
+}
+}
