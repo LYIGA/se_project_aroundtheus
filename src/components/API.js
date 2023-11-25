@@ -51,9 +51,7 @@ export default class Api {
           return res.json();
         }
       })
-      .then((result) => result);
   }
-}
 
 
 getInitialCards() {
@@ -61,21 +59,21 @@ getInitialCards() {
     method: "GET",
     headers: {
       authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
-.then((res) => (res))
 }
 })
 
 addCard(card) {
-  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards"
+  return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards", {
     method: "POST",
     headers: {
       authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
-.then((res) => this._checkResponse(res))
-} body: JSON.stringify({
+    },
+    body: JSON.stringify({
       name: card.name,
       link: card.link,
-    }),
-    .then((res) =>(res));
+    })
+  })
+    .then((res) => this._checkResponse(res))
 }
 
 deleteCard(id) {
