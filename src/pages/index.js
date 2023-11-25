@@ -85,8 +85,9 @@ editProfileButton.addEventListener("click", fillProfileForm);
 
 function fillProfileForm() {
   const userData = userInfo.getUserInfo();
+  console.log(userData, profileDescriptionEdit);
   profileTitleEdit.value = userData.name;
-  profileDescriptionEdit.value = userData.title;
+  descriptionJob.value = userData.title;
   newProfileModal.open();
 }
 
