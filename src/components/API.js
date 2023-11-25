@@ -73,21 +73,22 @@ addCard(card) {
       link: card.link,
     })
   })
-    .then((res) => this._checkResponse(res))
-}
+    .then((res) => (res))
+};
 
-deleteCard(id) {
+deleteCard(id) 
   return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards/${id}", {
     method: "DELETE",
     headers: this._headers,
-  }).then((res) =>(res));
+  });
 }
 
 likeCard(cardId) {
   return fetch("https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes", {
     method: "PUT",
     headers: this._headers,
-  }).then((res) => (res));
+  })
+  .then((res) => (res));
 }
 
 unlikeCard(cardId) {
@@ -99,5 +100,3 @@ unlikeCard(cardId) {
 
 loadPageContent() {
   return Promise.all([this.getInitialCards(), this.getUserInfo()]);
-}
-}
