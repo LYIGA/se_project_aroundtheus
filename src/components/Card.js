@@ -1,29 +1,53 @@
-
 export default class Card {
-  constructor({ name, link, _id, isLiked }, cardSelector, handleCardClick) {
+  constructor(
+    { name, link, _id, isLiked },
+    cardSelector,
+    handleImageClick,
+    handleDeleteConfirmSubmit,
+    handleCardLike
+  ) {
     this._name = name;
     this._link = link;
+    this.cardId = _id;
+    this.isLiked = isLiked;
     this._cardSelector = cardSelector;
-    this._handleCardClick = handleCardClick;
+    this._handleImageClick = handleImageClick;
+    this._handleDeleteConfirmSubmit = handleDeleteConfirmSubmit;
+    this._handleCardLike = handleCardLike;
+    this._confirmDeleteImagePopup = document.querySelector(
+      "#confirm-delete-form"
+    );
+    this._data = {
+      location: this._name,
+      link: this._link,
+    };
   }
+ 
+// export default class Card {
+//   constructor({ name, link, _id, isLiked }, cardSelector, handleCardClick) {
+//     this._name = name;
+//     this._link = link;
+//     this._cardSelector = cardSelector;
+//     this._handleCardClick = handleCardClick;
+//   }
 
-  this._name = cardData.name;
-  this._link = cardData.link;
-  this.id = cardData._id;
-  this.isLiked = cardData.isLiked;
+//   this._name = cardData.name;
+//   this._link = cardData.link;
+//   this.id = cardData._id;
+//   this.isLiked = cardData.isLiked;
 
-  this._cardSelector = cardSelector;
-  this._handleLikeClick = handleLikeClick;
-  this._handleDeleteClick = handleDeleteClick;
-  this._handleImageClick = handleImageClick;
+//   this._cardSelector = cardSelector;
+//   this._handleLikeClick = handleLikeClick;
+//   this._handleDeleteClick = handleDeleteClick;
+//   this._handleImageClick = handleImageClick;
 
 _getTemplate()
-  const cardElement = document
+  cardElement = document
     .querySelector(this._cardSelector)
     .content.querySelector(".card")
     .cloneNode(true);
 
-  return cardElement;
+return cardElement
 
   _setEventListener()
     // .card__like-button
