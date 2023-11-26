@@ -30,7 +30,6 @@ export default class PopupWithForm extends Popup {
     });
     return inputData;
   }
-}
 
 // isLoading should either be true or false
   
@@ -57,7 +56,7 @@ setEventListeners() {
 }
 
 close() {
-  this._form.reset();
+ this._form.reset();
 
   super.close();
 }
