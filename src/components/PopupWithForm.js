@@ -38,14 +38,13 @@ export default class PopupWithForm extends Popup {
   // if true, change the button text to 'Saving...'
   // if false, change the button text back to the default text.
 
-
 renderLoading(isLoading, loadingText = "Saving...") {
   if (isLoading) {
     this._submitButton.textContent = loadingText;
   } else {
     this._submitButton.textContent = this._submitButtonText;
   }
-}
+  }
 
 
 setEventListeners() {
@@ -62,5 +61,3 @@ close() {
 
   super.close();
 }
-
-
