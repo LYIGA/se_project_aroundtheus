@@ -31,3 +31,36 @@ export default class PopupWithForm extends Popup {
     return inputData;
   }
 }
+
+// isLoading should either be true or false
+  
+  // create an if/else statement that checks whether isLoading is true or false
+  // if true, change the button text to 'Saving...'
+  // if false, change the button text back to the default text.
+
+
+renderLoading(isLoading, loadingText = "Saving...") {
+  if (isLoading) {
+    this._submitButton.textContent = loadingText;
+  } else {
+    this._submitButton.textContent = this._submitButtonText;
+  }
+}
+
+
+setEventListeners() {
+  this._form.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+
+    this._handleFormSubmit(this._getInputValues());
+  });
+  super.setEventListeners();
+}
+
+close() {
+  this._form.reset();
+
+  super.close();
+}
+
+
