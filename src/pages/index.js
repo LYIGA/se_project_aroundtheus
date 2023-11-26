@@ -72,6 +72,7 @@ const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
+  newProfileModal.setLoading(true);
   api
     .updateUserInfo({ name: data.name, about: data.title })
     .then((newUserObj) => {
