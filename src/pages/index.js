@@ -39,7 +39,7 @@ const api = new Api();
 
 api.getUserInfo().then((res) => {
   console.log(res);
-  userInfo.setUserInfo({ name: res.name, title: res.about });
+  userInfo.setUserInfo(res);
   userInfo.setAvatarImg(res);
 });
 
@@ -72,11 +72,12 @@ const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
-  newProfileModal.setLoading(true);
+  newProfileModal.renderLoading(true);
   api
     .updateUserInfo({ name: data.name, about: data.title })
     .then((newUserObj) => {
-      userInfo.setUserInfo({ name: newUserObj.name, title: newUserObj.about });
+      newProfileModal.renderLoading(false);
+      userInfo.setUserInfo({ name: newUserObj.name, about: newUserObj.about });
       newProfileModal.close();
     });
 });
@@ -88,7 +89,7 @@ function fillProfileForm() {
   const userData = userInfo.getUserInfo();
   console.log(userData, profileDescriptionEdit);
   profileTitleEdit.value = userData.name;
-  descriptionJob.value = userData.title;
+  profileDescriptionEdit.value = userData.about;
   newProfileModal.open();
 }
 
@@ -143,8 +144,17 @@ const config = {
 };
 
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleCardLike
+  );
   return card.getView();
+}
+
+function handleCardLike(card) {
+  console.log(card);
 }
 
 const editFormValidator = new FormValidator(config, profileModalForm);
@@ -152,17 +162,21 @@ const addFormValidator = new FormValidator(config, addCardForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const cardElement = createCard(cardData);
-      section.addItem(cardElement);
+let section;
+
+api.getInitialCards().then((cards) => {
+  section = new Section(
+    {
+      items: cards,
+      renderer: (cardData) => {
+        const cardElement = createCard(cardData);
+        section.addItem(cardElement);
+      },
     },
-  },
-  ".cards__list"
-);
-section.rendererItems();
+    ".cards__list"
+  );
+  section.rendererItems();
+});
 
 fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
   headers: {

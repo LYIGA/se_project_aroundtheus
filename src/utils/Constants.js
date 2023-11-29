@@ -37,7 +37,9 @@ export const initialCards = [
   object6,
 ];
 
-export const avatarContainer = document.querySelector('.profile__avatar-container');
+export const avatarContainer = document.querySelector(
+  ".profile__avatar-container"
+);
 export const avaterModal = document.querySelector("#avatar-edit-modal");
 export const profileModalCloseButton =
   avaterModal.querySelector(".modal__close");
@@ -51,7 +53,7 @@ export const descriptionJob = profileFormElement.querySelector(
   ".profile__description"
 );
 export const profileTitleEdit = document.querySelector("#profile-title-input");
-export const profileDescriptionEdit = avaterModal.querySelector(
+export const profileDescriptionEdit = document.querySelector(
   "#profile-description-input"
 );
 
