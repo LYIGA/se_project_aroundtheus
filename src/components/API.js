@@ -66,19 +66,21 @@ export default class Api {
   }
 
   addCard(card) {
-    return fetch(
-      "https://around-api.en.tripleten-services.com/v1/users/me/cards",
-      {
-        method: "POST",
-        headers: {
-          authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
-        },
-        body: JSON.stringify({
-          name: card.name,
-          link: card.link,
-        }),
+    return fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+      method: "POST",
+      headers: {
+        authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: card.title,
+        link: card.url,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
       }
-    ).then((res) => res);
+    });
   }
 
   deleteCard(id) {

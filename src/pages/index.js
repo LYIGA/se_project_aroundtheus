@@ -63,12 +63,11 @@ const userInfo = new UserInfo(
 );
 
 const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
-  const card = createCard({
-    name: data.title,
-    link: data.url,
+  api.addCard(data).then((res) => {
+    const card = createCard(res);
+    section.addItem(card);
+    newCardModal.close();
   });
-  section.addItem(card);
-  newCardModal.close();
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
