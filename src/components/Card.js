@@ -4,7 +4,7 @@ export default class Card {
     cardSelector,
     handleImageClick,
     handleCardLike,
-    handleDeleteConfirmSubmit,
+    handleDeleteClick,
   ) {
     this._name = name;
     this._link = link;
@@ -12,7 +12,7 @@ export default class Card {
     this.isLiked = isLiked;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
-    this._handleDeleteConfirmSubmit = handleDeleteConfirmSubmit;
+    this._handleDeleteClick = handleDeleteClick;
     this._handleCardLike = handleCardLike;
     this._confirmDeleteImagePopup = document.querySelector(
       "#confirm-delete-form"
@@ -79,7 +79,7 @@ export default class Card {
     });
 
     this._deleteCardButton.addEventListener("click", () => {
-      this._handleDeleteClick(this);
+      this._handleDeleteClick(this.cardId);
     });
 
     this._cardImage.addEventListener("click", () => {

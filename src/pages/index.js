@@ -147,14 +147,40 @@ function createCard(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleCardLike
+    handleCardLike,
+    handleDeleteClick
   );
   return card.getView();
 }
 
-function handleCardLike(card) {
-  console.log(card);
+function handleDeleteClick() {
+  console.log("Card ID: " + id);
+
+  function handleDeleteClick(card) {
+    deleteCardConfirm.open();
+    deleteCardConfirm.setSubmitAction(() => {
+      api.deleteCard(card._cardId).then(() => {
+        deleteCardConfirm.close();
+        card._handleDeleteIcon();
+      });
+    });
+  }
+  // open the delete popup here
+  // call the api to delete the card
 }
+
+function handleLikeClick(card) {
+  if (card.isLiked) {
+    api.dislikeCard(card._cardId).then(() => {
+      card._handleLikeIcon();
+    });
+  } else {
+    api.likeCard(card._cardId).then(() => {
+      card._handleLikeIcon();
+    });
+  }
+}
+console.log(card);
 
 const editFormValidator = new FormValidator(config, profileModalForm);
 const addFormValidator = new FormValidator(config, addCardForm);
