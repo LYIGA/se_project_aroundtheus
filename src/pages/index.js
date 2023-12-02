@@ -100,6 +100,9 @@ addCardButton.addEventListener("click", () => {
 const imagePopUp = new PopUpWithImage("#image-modal", handleImageClick);
 imagePopUp.setEventListeners();
 
+const deleteCardConfirm = new PopupWithConfirmation("#image-modal");
+deleteCardConfirm.setEventListeners();
+
 function handleImageClick(name, link) {
   imagePopUp.open(name, link);
 }
@@ -153,20 +156,16 @@ function createCard(cardData) {
   return card.getView();
 }
 
-function handleDeleteClick() {
-  console.log("Card ID: " + id);
+function handleCardLike() {}
 
-  function handleDeleteClick(card) {
-    deleteCardConfirm.open();
-    deleteCardConfirm.setSubmitAction(() => {
-      api.deleteCard(card._cardId).then(() => {
-        deleteCardConfirm.close();
-        card._handleDeleteIcon();
-      });
+function handleDeleteClick(card) {
+  deleteCardConfirm.open();
+  deleteCardConfirm.setSubmitAction(() => {
+    api.deleteCard(card._cardId).then(() => {
+      deleteCardConfirm.close();
+      card._handleDeleteIcon();
     });
-  }
-  // open the delete popup here
-  // call the api to delete the card
+  });
 }
 
 function handleLikeClick(card) {
@@ -180,7 +179,6 @@ function handleLikeClick(card) {
     });
   }
 }
-console.log(card);
 
 const editFormValidator = new FormValidator(config, profileModalForm);
 const addFormValidator = new FormValidator(config, addCardForm);
