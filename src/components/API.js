@@ -97,7 +97,7 @@ export default class Api {
 
   likeCard(cardId) {
     return fetch(
-      `https:https://around-api.en.tripleten-services.com/v1/cards/cardId`,
+      `https://around-api.en.tripleten-services.com/v1/cards/cardId`,
       {
         method: "PUT",
         headers: this._headers,
