@@ -16,14 +16,6 @@ export default class PopupWithConfirmation extends Popup {
     }
   }
 
-  // setLoading(isLoading) {
-  //   if (isLoading) {
-  //     this._saveButton.textContent = "Saving...";
-  //   } else {
-  //     this._saveButton.textContent = this._saveButtonText;
-  //   }
-  // }
-
   setSubmitAction(action) {
     this._handleFormSubmit = action;
   }
