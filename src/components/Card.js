@@ -31,25 +31,7 @@ export default class Card {
     this._cardElement = _cardElement;
     return _cardElement;
   }
-  // _setEventListener() {
-  //   // .card__like-button
-  //   this._element
-  //     .querySelector(".card__like-button")
-  //     .addEventListener("click", () => {
-  //       this._handleLikeIcon();
-  //     });
 
-  //   //.card__delete-button
-  //   this._element
-  //     .querySelector(".card__delete-button")
-  //     .addEventListener("click", () => {
-  //       this._handleDeletCard();
-  //     });
-
-  //   this._cardImage.addEventListener("click", () => {
-  //     this._handleCardClick(this._name, this._link);
-  //   });
-  // }
   _handleDeletCard() {
     this._cardElement.remove();
   }
