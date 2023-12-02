@@ -4,7 +4,7 @@ export default class Card {
     cardSelector,
     handleImageClick,
     handleCardLike,
-    handleDeleteClick,
+    handleDeleteClick
   ) {
     this._name = name;
     this._link = link;
@@ -51,10 +51,10 @@ export default class Card {
   //   });
   // }
   _handleDeletCard() {
-    this._element.remove();
+    this._cardElement.remove();
   }
   _handleLikeIcon() {
-    this._element
+    this._cardElement
       .querySelector(".card__like-button")
       .classList.toggle("card__like-button_active");
   }

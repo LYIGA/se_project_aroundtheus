@@ -35,7 +35,11 @@ import {
 } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
-const api = new Api();
+const api = new Api({
+  headers: {
+    authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+  },
+});
 
 api.getUserInfo().then((res) => {
   console.log(res);
@@ -100,7 +104,7 @@ addCardButton.addEventListener("click", () => {
 const imagePopUp = new PopUpWithImage("#image-modal", handleImageClick);
 imagePopUp.setEventListeners();
 
-const deleteCardConfirm = new PopupWithConfirmation("#image-modal");
+const deleteCardConfirm = new PopupWithConfirmation("#delete-card-modal");
 deleteCardConfirm.setEventListeners();
 
 function handleImageClick(name, link) {
@@ -150,13 +154,11 @@ function createCard(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleCardLike,
+    handleLikeClick,
     handleDeleteClick
   );
   return card.getView();
 }
-
-function handleCardLike() {}
 
 function handleDeleteClick(card) {
   deleteCardConfirm.open();
@@ -174,6 +176,7 @@ function handleLikeClick(card) {
       card._handleLikeIcon();
     });
   } else {
+    console.log(card._cardId);
     api.likeCard(card._cardId).then(() => {
       card._handleLikeIcon();
     });

@@ -1,5 +1,7 @@
 export default class Api {
-  constructor() {}
+  constructor({ headers }) {
+    this._headers = headers;
+  }
 
   getUserInfo() {
     return fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
@@ -95,7 +97,7 @@ export default class Api {
 
   likeCard(cardId) {
     return fetch(
-      "https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes",
+      `https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes`,
       {
         method: "PUT",
         headers: this._headers,
@@ -105,7 +107,7 @@ export default class Api {
 
   unlikeCard(cardId) {
     return fetch(
-      "https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes",
+      `https://around-api.en.tripleten-services.com/v1/users/me/cards/${cardId}/likes`,
       {
         method: "DELETE",
         headers: this._headers,
