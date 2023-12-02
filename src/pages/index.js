@@ -106,6 +106,12 @@ imagePopUp.setEventListeners();
 
 const deleteCardConfirm = new PopupWithConfirmation("#delete-card-modal");
 deleteCardConfirm.setEventListeners();
+// deleteCardConfirm.setSubmitAction(() => {
+//   api.deleteCard(Card._cardId).then(() => {
+//     deleteCardConfirm.close();
+//     Card._handleDeleteIcon();
+//   });
+// });
 
 function handleImageClick(name, link) {
   imagePopUp.open(name, link);
