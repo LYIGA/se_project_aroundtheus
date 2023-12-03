@@ -87,7 +87,7 @@ export default class Api {
 
   deleteCard(id) {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/users/me/cards/${id}`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${id}`,
       {
         method: "DELETE",
         headers: this._headers,

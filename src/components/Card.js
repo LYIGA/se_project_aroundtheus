@@ -32,7 +32,7 @@ export default class Card {
     return _cardElement;
   }
 
-  _handleDeletCard() {
+  _handleDeleteCard() {
     this._cardElement.remove();
   }
   _handleLikeIcon() {
@@ -61,7 +61,7 @@ export default class Card {
     });
 
     this._deleteCardButton.addEventListener("click", () => {
-      this._handleDeleteClick(this.cardId);
+      this._handleDeleteClick(this);
     });
 
     this._cardImage.addEventListener("click", () => {
