@@ -169,9 +169,9 @@ function createCard(cardData) {
 function handleDeleteClick(card) {
   deleteCardConfirm.open();
   deleteCardConfirm.setSubmitAction(() => {
-    api.deleteCard(card._cardId).then(() => {
+    api.deleteCard(card.cardId).then(() => {
       deleteCardConfirm.close();
-      card._handleDeleteIcon();
+      card._handleDeleteCard();
     });
   });
 }
