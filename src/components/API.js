@@ -97,7 +97,7 @@ export default class Api {
 
   likeCard(cardId) {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/cardId`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
       {
         method: "PUT",
         headers: this._headers,
@@ -107,7 +107,7 @@ export default class Api {
 
   unlikeCard(cardId) {
     return fetch(
-      `https://around-api.en.tripleten-services.com/v1/cards/cardId/likes`,
+      `https://around-api.en.tripleten-services.com/v1/cards/${cardId}/likes`,
       {
         method: "DELETE",
         headers: this._headers,

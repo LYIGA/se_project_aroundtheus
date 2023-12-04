@@ -178,7 +178,7 @@ function handleDeleteClick(card) {
 
 function handleLikeClick(card) {
   if (card.isLiked) {
-    api.dislikeCard(card.cardId).then(() => {
+    api.unlikeCard(card.cardId).then(() => {
       card._handleLikeIcon();
     });
   } else {
