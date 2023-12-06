@@ -48,7 +48,9 @@ api.getUserInfo().then((res) => {
 });
 
 const avatarPopup = new PopupWithForm("#avatar-edit-modal", (avatar) => {
+  newCardModal.renderLoading(true)
   api.updateAvatar(avatar).then((res) => {
+    newCardModal.renderLoading(false)
     userInfo.setAvatarImg(res);
     avatarPopup.close();
   });
@@ -67,7 +69,9 @@ const userInfo = new UserInfo(
 );
 
 const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
+  newCardModal.renderLoading(true);
   api.addCard(data).then((res) => {
+    newCardModal.renderLoading(false);
     const card = createCard(res);
     section.addItem(card);
     newCardModal.close();
