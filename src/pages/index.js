@@ -48,9 +48,9 @@ api.getUserInfo().then((res) => {
 });
 
 const avatarPopup = new PopupWithForm("#avatar-edit-modal", (avatar) => {
-  newCardModal.renderLoading(true)
+  newCardModal.renderLoading(true);
   api.updateAvatar(avatar).then((res) => {
-    newCardModal.renderLoading(false)
+    newCardModal.renderLoading(false);
     userInfo.setAvatarImg(res);
     avatarPopup.close();
   });
@@ -173,7 +173,9 @@ function createCard(cardData) {
 function handleDeleteClick(card) {
   deleteCardConfirm.open();
   deleteCardConfirm.setSubmitAction(() => {
+    newCardModal.renderLoading(true);
     api.deleteCard(card.cardId).then(() => {
+      newCardModal.renderLoading(false);
       deleteCardConfirm.close();
       card._handleDeleteCard();
     });
