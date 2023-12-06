@@ -10,9 +10,9 @@ export default class PopupWithConfirmation extends Popup {
 
   renderLoading(isLoading, loadingText = "Saving...") {
     if (isLoading) {
-      this._submitButton.textContent = loadingText;
+      this._saveButton.textContent = loadingText;
     } else {
-      this._submitButton.textContent = this._submitButtonText;
+      this._saveButton.textContent = this._saveButtonText;
     }
   }
 
