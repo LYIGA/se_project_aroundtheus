@@ -35,11 +35,15 @@ import {
 } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
-const api = new Api({
-  headers: {
-    authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+const api = new Api(
+  {
+    headers: {
+      authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+      "Content-Type": "application/json"
+    },
   },
-});
+  "https://around-api.en.tripleten-services.com/v1"
+);
 
 api.getUserInfo().then((res) => {
   console.log(res);
@@ -130,20 +134,22 @@ function handleAddCardSubmit({ title, url }) {
   });
 }
 
-addCardSubmit.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const title = e.target.title.value;
-  const image = e.target.link.value;
-  const card = createCard({
-    name: title,
-    link: image,
-  });
-  // cardList.prepend(card);
-  section.addItem(card);
-  closeModal(addCardModal);
-  e.target.reset();
-  addFormValidator.toggleButtonState();
-});
+
+//delete this
+// addCardSubmit.addEventListener("submit", function (e) {
+//   e.preventDefault();
+//   const title = e.target.title.value;
+//   const image = e.target.link.value;
+//   const card = createCard({
+//     name: title,
+//     link: image,
+//   });
+//   // cardList.prepend(card);
+//   section.addItem(card);
+//   closeModal(addCardModal);
+//   e.target.reset();
+//   addFormValidator.toggleButtonState();
+// });
 
 // initialCards.forEach(function (data) {
 //   const cardElement = createCard(data);
