@@ -10,7 +10,6 @@ import PopupWithConfirmation from "../components/PopupWithConfirmation.js";
 // import { initialCards } from "../utils/Constants.js";
 
 import {
-  initialCards,
   profileModal,
   profileModalCloseButton,
   profileModalForm,
@@ -32,6 +31,7 @@ import {
   descriptionJob,
   addCardForm,
   avatarContainer,
+  config
 } from "../utils/Constants.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 
@@ -39,25 +39,35 @@ const api = new Api(
   {
     headers: {
       authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
-      "Content-Type": "application/json"
+      "Content-Type": "application/json",
     },
   },
   "https://around-api.en.tripleten-services.com/v1"
 );
 
-api.getUserInfo().then((res) => {
-  console.log(res);
-  userInfo.setUserInfo(res);
-  userInfo.setAvatarImg(res);
-});
+api
+  .getUserInfo()
+  .then((res) => {
+    console.log(res);
+    userInfo.setUserInfo(res);
+    userInfo.setAvatarImg(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 const avatarPopup = new PopupWithForm("#avatar-edit-modal", (avatar) => {
   avatarPopup.renderLoading(true);
-  api.updateAvatar(avatar).then((res) => {
-    avatarPopup.renderLoading(false);
-    userInfo.setAvatarImg(res);
-    avatarPopup.close();
-  });
+  api
+    .updateAvatar(avatar)
+    .then((res) => {
+      avatarPopup.renderLoading(false);
+      userInfo.setAvatarImg(res);
+      avatarPopup.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 avatarPopup.setEventListeners();
 
@@ -134,7 +144,6 @@ function handleAddCardSubmit({ title, url }) {
   });
 }
 
-
 //delete this
 // addCardSubmit.addEventListener("submit", function (e) {
 //   e.preventDefault();
@@ -156,14 +165,7 @@ function handleAddCardSubmit({ title, url }) {
 //   cardList.prepend(cardElement);
 // });
 
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
+
 
 function createCard(cardData) {
   const card = new Card(
@@ -183,7 +185,7 @@ function handleDeleteClick(card) {
     api.deleteCard(card.cardId).then(() => {
       deleteCardConfirm.renderLoading(false);
       deleteCardConfirm.close();
-      card._handleDeleteCard();
+      card.handleDeleteCard();
     });
   });
 }
@@ -191,7 +193,7 @@ function handleDeleteClick(card) {
 function handleLikeClick(card) {
   if (card.isLiked) {
     api.unlikeCard(card.cardId).then(() => {
-      card._handleLikeIcon();
+      card.handleDeleteCard();
     });
   } else {
     console.log(card.cardId);

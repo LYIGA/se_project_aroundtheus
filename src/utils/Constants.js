@@ -1,41 +1,4 @@
-const object1 = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
 
-const object2 = {
-  name: "Lake Louise",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-};
-
-const object3 = {
-  name: "Bald Mountains",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-};
-
-const object4 = {
-  name: "Latemar",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-};
-
-const object5 = {
-  name: "Vanoise National Park",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-};
-
-const object6 = {
-  name: "Lago di Braies",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-};
-
-export const initialCards = [
-  object1,
-  object2,
-  object3,
-  object4,
-  object5,
-  object6,
-];
 
 export const avatarContainer = document.querySelector(
   ".profile__avatar-container"
@@ -86,3 +49,13 @@ export const previewImageTitle = document.querySelector(
 );
 
 export const modals = document.querySelectorAll(".modal");
+
+
+export const config = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};

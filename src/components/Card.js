@@ -32,7 +32,7 @@ export default class Card {
     return _cardElement;
   }
 
-  _handleDeleteCard() {
+  handleDeleteCard() {
     this._cardElement.remove();
   }
   _handleLikeIcon() {
