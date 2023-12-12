@@ -31,9 +31,9 @@ import {
   descriptionJob,
   addCardForm,
   avatarContainer,
-  config
+  config,
 } from "../utils/Constants.js";
-import PopupWithImage from "../components/PopupWithImage.js";
+// import PopupWithImage from "../components/PopupWithImage.js";
 
 const api = new Api(
   {
@@ -143,29 +143,6 @@ function handleAddCardSubmit({ title, url }) {
     section.addItem(data);
   });
 }
-
-//delete this
-// addCardSubmit.addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   const title = e.target.title.value;
-//   const image = e.target.link.value;
-//   const card = createCard({
-//     name: title,
-//     link: image,
-//   });
-//   // cardList.prepend(card);
-//   section.addItem(card);
-//   closeModal(addCardModal);
-//   e.target.reset();
-//   addFormValidator.toggleButtonState();
-// });
-
-// initialCards.forEach(function (data) {
-//   const cardElement = createCard(data);
-//   cardList.prepend(cardElement);
-// });
-
-
 
 function createCard(cardData) {
   const card = new Card(
