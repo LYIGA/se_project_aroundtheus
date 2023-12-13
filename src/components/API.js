@@ -8,7 +8,7 @@ export default class Api {
     return fetch(this._baseUrl+"/users/me", {
       method: "GET",
       headers: this._headers,
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
