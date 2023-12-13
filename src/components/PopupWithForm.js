@@ -9,13 +9,7 @@ export default class PopupWithForm extends Popup {
     this._submitButton = this._popupForm.querySelector(".modal__button");
     this._submitButtonText = this._submitButton.textContent;
   }
-  setEventListeners() {
-    this._popupForm.addEventListener("submit", () => {
-      this._handleFormSubmit(this._getInputValues());
-    });
 
-    super.setEventListeners();
-  }
 
   close() {
     super.close();
@@ -50,11 +44,5 @@ export default class PopupWithForm extends Popup {
       this._handleFormSubmit(this._getInputValues());
     });
     super.setEventListeners();
-  }
-
-  close() {
-    this._popupForm.reset();
-
-    super.close();
   }
 }

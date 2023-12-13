@@ -32,6 +32,7 @@ import {
   addCardForm,
   avatarContainer,
   config,
+  avatarForm,
 } from "../utils/Constants.js";
 // import PopupWithImage from "../components/PopupWithImage.js";
 
@@ -61,17 +62,20 @@ const avatarPopup = new PopupWithForm("#avatar-edit-modal", (avatar) => {
   api
     .updateAvatar(avatar)
     .then((res) => {
-      avatarPopup.renderLoading(false);
       userInfo.setAvatarImg(res);
       avatarPopup.close();
     })
     .catch((err) => {
       console.log(err);
+    })
+    .finally(() => {
+      avatarPopup.renderLoading(false);
     });
 });
 avatarPopup.setEventListeners();
 
 avatarContainer.addEventListener("click", () => {
+  avatarFormValidator.toggleButtonState();
   avatarPopup.open();
 });
 
@@ -84,12 +88,19 @@ const userInfo = new UserInfo(
 
 const newCardModal = new PopupWithForm("#new-card-modal", (data) => {
   newCardModal.renderLoading(true);
-  api.addCard(data).then((res) => {
-    newCardModal.renderLoading(false);
-    const card = createCard(res);
-    section.addItem(card);
-    newCardModal.close();
-  });
+  api
+    .addCard(data)
+    .then((res) => {
+      const card = createCard(res);
+      section.addItem(card);
+      newCardModal.close();
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+      newCardModal.renderLoading(false);
+    });
 });
 newCardModal.setEventListeners();
 const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
@@ -97,9 +108,14 @@ const newProfileModal = new PopupWithForm("#profile-edit-modal", (data) => {
   api
     .updateUserInfo({ name: data.name, about: data.title })
     .then((newUserObj) => {
-      newProfileModal.renderLoading(false);
       userInfo.setUserInfo({ name: newUserObj.name, about: newUserObj.about });
       newProfileModal.close();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      newProfileModal.renderLoading(false);
     });
 });
 newProfileModal.setEventListeners();
@@ -135,15 +151,6 @@ function handleImageClick(name, link) {
   imagePopUp.open(name, link);
 }
 
-// handle form submit //
-function handleAddCardSubmit({ title, url }) {
-  api.addNewCard({ name: title, link: url }).then((data) => {
-    console.log(data);
-
-    section.addItem(data);
-  });
-}
-
 function createCard(cardData) {
   const card = new Card(
     cardData,
@@ -159,54 +166,68 @@ function handleDeleteClick(card) {
   deleteCardConfirm.open();
   deleteCardConfirm.setSubmitAction(() => {
     deleteCardConfirm.renderLoading(true);
-    api.deleteCard(card.cardId).then(() => {
-      deleteCardConfirm.renderLoading(false);
-      deleteCardConfirm.close();
-      card.handleDeleteCard();
-    });
+    api
+      .deleteCard(card.cardId)
+      .then(() => {
+        deleteCardConfirm.close();
+        card.handleDeleteCard();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        deleteCardConfirm.renderLoading(false);
+      });
   });
 }
 
 function handleLikeClick(card) {
   if (card.isLiked) {
-    api.unlikeCard(card.cardId).then(() => {
-      card.handleDeleteCard();
-    });
+    api
+      .unlikeCard(card.cardId)
+      .then((res) => {
+       card.updateLikeStatus(res.isLiked)
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   } else {
     console.log(card.cardId);
-    api.likeCard(card.cardId).then(() => {
-      card.handleLikeIcon();
-    });
+    api
+      .likeCard(card.cardId)
+      .then((res) => {
+        card.updateLikeStatus(res.isLiked)
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }
 
 const editFormValidator = new FormValidator(config, profileModalForm);
 const addFormValidator = new FormValidator(config, addCardForm);
+const avatarFormValidator = new FormValidator(config, avatarForm);
 editFormValidator.enableValidation();
 addFormValidator.enableValidation();
+avatarFormValidator.enableValidation();
 
 let section;
 
-api.getInitialCards().then((cards) => {
-  section = new Section(
-    {
-      items: cards,
-      renderer: (cardData) => {
-        const cardElement = createCard(cardData);
-        section.addItem(cardElement);
+api
+  .getInitialCards()
+  .then((cards) => {
+    section = new Section(
+      {
+        items: cards,
+        renderer: (cardData) => {
+          const cardElement = createCard(cardData);
+          section.addItem(cardElement);
+        },
       },
-    },
-    ".cards__list"
-  );
-  section.rendererItems();
-});
-
-// fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-//   headers: {
-//     authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
-//   },
-// })
-//   .then((res) => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   });
+      ".cards__list"
+    );
+    section.rendererItems();
+  })
+  .catch((err) => {
+    console.error(err);
+  });

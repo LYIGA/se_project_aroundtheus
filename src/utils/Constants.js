@@ -4,6 +4,7 @@ export const avatarContainer = document.querySelector(
   ".profile__avatar-container"
 );
 export const avaterModal = document.querySelector("#avatar-edit-modal");
+export const avatarForm = avaterModal.querySelector('.modal__form');
 export const profileModalCloseButton =
   avaterModal.querySelector(".modal__close");
 export const profileModalForm = avaterModal.querySelector(".modal__form");

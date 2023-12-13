@@ -35,11 +35,7 @@ export default class Card {
   handleDeleteCard() {
     this._cardElement.remove();
   }
-  handleLikeIcon() {
-    this._cardElement
-      .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_active");
-  }
+
   getView() {
     this._cardElement = this._getTemplate();
     this._likeButton = this._cardElement.querySelector(".card__like-button");

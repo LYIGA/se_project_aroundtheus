@@ -1,110 +1,108 @@
 export default class Api {
   constructor({ headers }, url) {
-    this._baseUrl =url;
+    this._baseUrl = url;
     this._headers = headers;
   }
 
   getUserInfo() {
-    return fetch(this._baseUrl+"/users/me", {
+    return fetch(this._baseUrl + "/users/me", {
       method: "GET",
       headers: this._headers,
-    }).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   updateUserInfo(userInfo) {
     // assuming that userInfo looks like { name: '', about: ''}
-    return fetch(this._baseUrl+"/users/me", {
+    return fetch(this._baseUrl + "/users/me", {
       method: "PATCH",
       body: JSON.stringify(userInfo),
       headers: this._headers,
-    }).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   updateAvatar(avatar) {
-    return fetch(
-      this._baseUrl+"/users/me/avatar",
-      {
-        method: "PATCH",
-        body: JSON.stringify(avatar),
-        headers: this._headers,
-      }
-    ).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    return fetch(this._baseUrl + "/users/me/avatar", {
+      method: "PATCH",
+      body: JSON.stringify(avatar),
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   getInitialCards() {
-    return fetch(this._baseUrl+"/cards", {
+    return fetch(this._baseUrl + "/cards", {
       method: "GET",
       headers: this._headers,
-    }).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   addCard(card) {
-    return fetch(this._baseUrl+"/cards", {
+    return fetch(this._baseUrl + "/cards", {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name: card.title,
         link: card.url,
       }),
-    }).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   deleteCard(id) {
-    return fetch(
-      this._baseUrl+`/cards/${id}`,
-      {
-        method: "DELETE",
-        headers: this._headers,
-      }
-    ).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    return fetch(this._baseUrl + `/cards/${id}`, {
+      method: "DELETE",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   likeCard(cardId) {
-    return fetch(
-      this._baseUrl+`/cards/${cardId}/likes`,
-      {
-        method: "PUT",
-        headers: this._headers,
-      }
-    ).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    return fetch(this._baseUrl + `/cards/${cardId}/likes`, {
+      method: "PUT",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   unlikeCard(cardId) {
-    return fetch(
-      this._baseUrl+`/cards/${cardId}/likes`,
-      {
-        method: "DELETE",
-        headers: this._headers,
-      }
-    ).then(this._checkResponse)
-    .catch((error)=>{
-      console.log(error)
-    });
+    return fetch(this._baseUrl + `/cards/${cardId}/likes`, {
+      method: "DELETE",
+      headers: this._headers,
+    })
+      .then(this._checkResponse)
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   _checkResponse(res) {
-    return res.ok ? res.json() : Promise.reject("Error: something is wrong with api");
+    return res.ok
+      ? res.json()
+      : Promise.reject("Error: something is wrong with api");
   }
 
   loadPageContent() {
