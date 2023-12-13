@@ -34,7 +34,7 @@ export default class Api {
         body: JSON.stringify(avatar),
         headers: this._headers,
       }
-    ).then(this._checkResponse);
+    ).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
@@ -44,7 +44,7 @@ export default class Api {
     return fetch(this._baseUrl+"/cards", {
       method: "GET",
       headers: this._headers,
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
@@ -58,7 +58,7 @@ export default class Api {
         name: card.title,
         link: card.url,
       }),
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
@@ -71,7 +71,7 @@ export default class Api {
         method: "DELETE",
         headers: this._headers,
       }
-    ).then(this._checkResponse);
+    ).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
@@ -84,7 +84,7 @@ export default class Api {
         method: "PUT",
         headers: this._headers,
       }
-    ).then(this._checkResponse);
+    ).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
@@ -97,7 +97,7 @@ export default class Api {
         method: "DELETE",
         headers: this._headers,
       }
-    ).then(this._checkResponse);
+    ).then(this._checkResponse)
     .catch((error)=>{
       console.log(error)
     });
