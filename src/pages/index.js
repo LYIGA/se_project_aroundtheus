@@ -175,7 +175,7 @@ function handleLikeClick(card) {
   } else {
     console.log(card.cardId);
     api.likeCard(card.cardId).then(() => {
-      card._handleLikeIcon();
+      card.handleLikeIcon();
     });
   }
 }
@@ -201,12 +201,12 @@ api.getInitialCards().then((cards) => {
   section.rendererItems();
 });
 
-fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
-  headers: {
-    authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
-  },
-})
-  .then((res) => res.json())
-  .then((result) => {
-    console.log(result);
-  });
+// fetch("https://around-api.en.tripleten-services.com/v1/users/me", {
+//   headers: {
+//     authorization: "894d7be5-6631-4bd2-8600-f51b6f91dfe6",
+//   },
+// })
+//   .then((res) => res.json())
+//   .then((result) => {
+//     console.log(result);
+//   });

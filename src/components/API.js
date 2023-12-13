@@ -9,6 +9,9 @@ export default class Api {
       method: "GET",
       headers: this._headers,
     }).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   updateUserInfo(userInfo) {
@@ -17,7 +20,10 @@ export default class Api {
       method: "PATCH",
       body: JSON.stringify(userInfo),
       headers: this._headers,
-    }).then(this._checkResponse);
+    }).then(this._checkResponse)
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   updateAvatar(avatar) {
@@ -29,6 +35,9 @@ export default class Api {
         headers: this._headers,
       }
     ).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   getInitialCards() {
@@ -36,6 +45,9 @@ export default class Api {
       method: "GET",
       headers: this._headers,
     }).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   addCard(card) {
@@ -47,6 +59,9 @@ export default class Api {
         link: card.url,
       }),
     }).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   deleteCard(id) {
@@ -57,6 +72,9 @@ export default class Api {
         headers: this._headers,
       }
     ).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   likeCard(cardId) {
@@ -67,6 +85,9 @@ export default class Api {
         headers: this._headers,
       }
     ).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   unlikeCard(cardId) {
@@ -77,6 +98,9 @@ export default class Api {
         headers: this._headers,
       }
     ).then(this._checkResponse);
+    .catch((error)=>{
+      console.log(error)
+    });
   }
 
   _checkResponse(res) {
