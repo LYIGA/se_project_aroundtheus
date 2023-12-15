@@ -8,11 +8,7 @@ export default class Api {
     return fetch(this._baseUrl + "/users/me", {
       method: "GET",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   updateUserInfo(userInfo) {
@@ -21,11 +17,7 @@ export default class Api {
       method: "PATCH",
       body: JSON.stringify(userInfo),
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   updateAvatar(avatar) {
@@ -33,22 +25,14 @@ export default class Api {
       method: "PATCH",
       body: JSON.stringify(avatar),
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   getInitialCards() {
     return fetch(this._baseUrl + "/cards", {
       method: "GET",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   addCard(card) {
@@ -59,44 +43,28 @@ export default class Api {
         name: card.title,
         link: card.url,
       }),
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   deleteCard(id) {
     return fetch(this._baseUrl + `/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   likeCard(cardId) {
     return fetch(this._baseUrl + `/cards/${cardId}/likes`, {
       method: "PUT",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   unlikeCard(cardId) {
     return fetch(this._baseUrl + `/cards/${cardId}/likes`, {
       method: "DELETE",
       headers: this._headers,
-    })
-      .then(this._checkResponse)
-      .catch((error) => {
-        console.log(error);
-      });
+    }).then(this._checkResponse);
   }
 
   _checkResponse(res) {
