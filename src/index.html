@@ -21,17 +21,17 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            class="profile__image"
-            src="<%=require('./image/jacques-cousteau.png')%>"
-            alt="avatar" />
+          <div class="profile__avatar-container">
+            <img class="profile__image" alt="avatar" />
+            <button class="profile__edit-avatar"></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__title">Jacques-Cousteau</h1>
+            <h1 class="profile__title"></h1>
             <button
               class="profile__edit-button"
               id="profile-edit-button"
               type="button"></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description"></p>
           </div>
           <button class="profile__add-button" type="button"></button>
         </section>
@@ -78,6 +78,28 @@
         </form>
       </div>
     </div>
+
+    <!--- Avatar Modal-->
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="modal-close-button"
+          type="button"></button>
+        <h2 class="modal__heading">Edit Avatar</h2>
+        <form class="modal__form" id="avatar-edit-form" novalidate>
+          <input
+            class="modal__input modal__input_type_name modal__form-title"
+            name="avatar"
+            id="avatar-link-input"
+            placeholder="Url"
+            type="text"
+            required />
+          <span class="modal__error" id="avatar-link-input-error"></span>
+          <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
     <!--- Add Card Modal-->
     <div class="modal" id="new-card-modal">
       <div class="modal__container">
@@ -113,6 +135,51 @@
             Save
           </button>
         </form>
+      </div>
+    </div>
+    <div class="modal" id="image-preview-modal">
+      <div class="modal__image-container">
+        <button
+          class="modal__close modal__close_type_button"
+          type="button"></button>
+        <img
+          class="modal__card-image-preview"
+          alt="latemar"
+          src="https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg" />
+        <p class="modal__image-title"></p>
+      </div>
+    </div>
+
+    <div class="modal" id="profile-image-modal">
+      <div class="modal__containter">
+        <button class="modal__close" type="button"></button>
+        <h2 class="modal__heading">Change profile picture</h2>
+        <form class="modal__form" id="profile-image-form">
+          <label class="modal__label">
+            <input
+              class="modal__input modal__input_type_url"
+              placeholder="Image URL"
+              type="url"
+              id="card-url"
+              name="url"
+              required />
+            <span class="modal__error" id="card-url-error"></span>
+            <button class="modal__button" type="submit">Save</button>
+          </label>
+        </form>
+      </div>
+    </div>
+    <!-- DELETE CARD MODAL  -->
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container">
+        <form class="modal__form" name="confirm-delete-form">
+          <h5 class="modal__heading">Are you sure?</h5>
+          <button class="modal__button" type="submit">Yes</button>
+        </form>
+        <button
+          class="modal__close"
+          id="delete-card-close-button"
+          type="button"></button>
       </div>
     </div>
     <!--- Image Modal-->
