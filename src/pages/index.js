@@ -49,7 +49,6 @@ const api = new Api(
 api
   .getUserInfo()
   .then((res) => {
-    console.log(res);
     userInfo.setUserInfo(res);
     userInfo.setAvatarImg(res);
   })
@@ -124,7 +123,6 @@ editProfileButton.addEventListener("click", fillProfileForm);
 
 function fillProfileForm() {
   const userData = userInfo.getUserInfo();
-  console.log(userData, profileDescriptionEdit);
   profileTitleEdit.value = userData.name;
   profileDescriptionEdit.value = userData.about;
   newProfileModal.open();
@@ -186,17 +184,16 @@ function handleLikeClick(card) {
     api
       .unlikeCard(card.cardId)
       .then((res) => {
-       card.updateLikeStatus(res.isLiked)
+        card.updateLikeStatus(res.isLiked);
       })
       .catch((err) => {
         console.error(err);
       });
   } else {
-    console.log(card.cardId);
     api
       .likeCard(card.cardId)
       .then((res) => {
-        card.updateLikeStatus(res.isLiked)
+        card.updateLikeStatus(res.isLiked);
       })
       .catch((err) => {
         console.error(err);

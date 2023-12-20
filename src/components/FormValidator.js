@@ -62,8 +62,4 @@ export default class FormValidator {
     });
     this._setEventListeners();
   }
-
-  resetValidation() {
-    isFormValid.resetForm();
-  }
 }

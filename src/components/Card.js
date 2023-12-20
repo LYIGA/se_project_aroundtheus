@@ -14,9 +14,7 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleDeleteClick = handleDeleteClick;
     this._handleCardLike = handleCardLike;
-    this._confirmDeleteImagePopup = document.querySelector(
-      "#confirm-delete-form"
-    );
+
     this._data = {
       location: this._name,
       link: this._link,
